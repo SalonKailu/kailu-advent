@@ -1,0 +1,577 @@
+/* Day3.css - Kailu Milionář styly */
+
+.day3-container {
+  min-height: 50vh;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.day3-title {
+  text-align: center;
+  font-size: 1.7rem;
+  color: #d4a5a5;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Start screen */
+.day3-start {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.day3-intro h2 {
+  color: #333;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.day3-intro p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.day3-rules {
+background: transparent;
+border-left: 3px solid #d4a5a5;
+padding-left: 20px;
+border-radius: 0;
+}
+
+.day3-rules h3 {
+  color: #d4a5a5;
+  margin-bottom: 15px;
+}
+
+.day3-rules ul {
+  list-style: none;
+  padding: 0;
+}
+
+.day3-rules li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+}
+
+.day3-rules li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #d4a5a5;
+  font-weight: bold;
+}
+
+/* Form */
+.day3-form {
+  background: #fafafa;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+}
+
+.day3-input {
+  padding: 15px;
+  margin: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.day3-input:focus {
+  outline: none;
+  border-color: #d4a5a5;
+}
+
+.day3-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+
+.day3-checkbox-label input[type="checkbox"] {
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.day3-checkbox-label a {
+  color: #d4a5a5;
+  text-decoration: none;
+}
+
+.day3-checkbox-label a:hover {
+  text-decoration: underline;
+}
+
+.day3-submit {
+    /* Převzato z quiz-button, ale s menším paddingem pro formulář */
+    display: block;
+    padding: 15px 30px;
+    
+    /* Elegantní přechod: Bílá/Krémová (#f1eae2) a Zelená (#91c77e) */
+    background: linear-gradient(90deg, #91c77e 0%, #91c77e 50%, #f1eae2 50%, #f1eae2 100%);
+    background-size: 200% 100%;
+    background-position: 100% 0; /* Začíná na krémové straně */
+    
+    color: #333; /* Barva textu */
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase; /* Zůstává, jako v původním .day3-submit */
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+    width: 100%;
+    
+    /* Optimalizované přechody */
+    transition: background-position 0.5s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day3-submit:hover {
+    background-position: 0 0; /* Zelená se rozlije přes celé tlačítko */
+    color: #fff; /* Text se změní na bílý pro kontrast se zelenou */
+    transform: translateY(-2px); /* Jemný posun nahoru pro interakci */
+    box-shadow: 0 5px 15px rgba(145, 199, 126, 0.4); /* Jemný zelený stín */
+}
+
+/* Game screen */
+.day3-game {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.day3-header {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+/* Timer */
+.day3-timer-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.day3-timer {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.day3-timer.warning {
+  background: #ffe0e0;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.timer-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+.day3-timer.warning .timer-number {
+  color: #e74c3c;
+}
+
+.timer-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.day3-timer-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.day3-timer-fill {
+  height: 100%;
+  background: linear-gradient(to right, #d4a5a5, #e09090);
+  transition: width 1s linear;
+}
+
+.day3-timer.warning + .day3-timer-bar .day3-timer-fill {
+  background: linear-gradient(to right, #e74c3c, #c0392b);
+}
+
+/* Progress */
+.day3-progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.day3-discount-info {
+  font-weight: bold;
+  color: #d4a5a5;
+}
+
+/* Question */
+.day3-question-container {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.day3-question {
+  font-size: 1.6rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+/* Options */
+.day3-options {
+  display: grid;
+  gap: 15px;
+}
+
+.day3-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 25px;
+  background: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.day3-option:hover:not(.disabled) {
+  background: #fff;
+  border-color: #d4a5a5;
+  transform: translateX(5px);
+}
+
+.option-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #d4a5a5;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.option-text {
+  color: #333;
+  flex: 1;
+}
+
+/* Option states */
+.day3-option.correct {
+  background: #d4f1d4;
+  border-color: #4CAF50;
+}
+
+.day3-option.correct .option-letter {
+  background: #4CAF50;
+}
+
+.day3-option.wrong {
+  background: #ffd4d4;
+  border-color: #f44336;
+}
+
+.day3-option.wrong .option-letter {
+  background: #f44336;
+}
+
+.day3-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.day3-option.disabled:hover {
+  transform: none;
+}
+
+/* Take discount button */
+.day3-take-discount {
+  margin-top: 30px;
+  background: none;
+  border: 2px solid #d4a5a5;
+  color: #d4a5a5;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.day3-take-discount:hover {
+  background: #d4a5a5;
+  color: white;
+}
+
+/* Result screen */
+.day3-result {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.day3-result-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.day3-discount-won {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.discount-number {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #d4a5a5;
+  line-height: 1;
+}
+
+.discount-label {
+  font-size: 1.5rem;
+  color: #666;
+  letter-spacing: 2px;
+}
+
+/* Code container */
+.day3-code-container {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.day3-code-container p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.day3-code {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #d4a5a5;
+  letter-spacing: 3px;
+  padding: 20px;
+  background: white;
+  border: 3px dashed #d4a5a5;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.day3-code-info {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* Shop button */
+.day3-shop-button {
+  display: inline-block;
+  background: #d4a5a5;
+  color: white;
+  padding: 18px 40px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.day3-shop-button:hover {
+  background: #c09090;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 165, 165, 0.4);
+}
+
+/* No discount */
+.day3-no-discount {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.day3-tomorrow {
+  font-size: 1.1rem;
+  color: #d4a5a5;
+  font-weight: bold;
+}
+
+/* Social */
+.day3-social {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.day3-social p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.day3-share {
+  background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.day3-share:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .day3-container {
+    padding: 15px;
+  }
+
+  .day3-title {
+    font-size: 2rem;
+  }
+
+  .day3-start, .day3-result {
+    padding: 25px;
+  }
+
+  .day3-intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .day3-question-container {
+    padding: 25px;
+  }
+
+  .day3-question {
+    font-size: 1.3rem;
+  }
+
+  .day3-option {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+
+  .option-letter {
+    width: 35px;
+    height: 35px;
+  }
+
+  .discount-number {
+    font-size: 4rem;
+  }
+
+  .day3-code {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .day3-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .day3-start, .day3-result {
+    padding: 20px;
+  }
+
+  .day3-intro h2 {
+    font-size: 1.3rem;
+  }
+
+  .day3-intro p {
+    font-size: 1rem;
+  }
+
+  .day3-submit, .day3-shop-button {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+
+  .day3-question {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  .day3-option {
+    padding: 12px 15px;
+  }
+
+  .day3-timer {
+    width: 80px;
+    height: 80px;
+  }
+
+  .timer-number {
+    font-size: 2rem;
+  }
+
+  .discount-number {
+    font-size: 3rem;
+  }
+
+  .day3-code {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+}

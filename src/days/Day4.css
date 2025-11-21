@@ -1,0 +1,170 @@
+/* Základní styly pro container Dne 4 */
+.day-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.day-4 h2 {
+    color: #a04040; /* Vánoční červená/bordó */
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+
+.day3-checkbox-label {
+    font-size: 0.9em;
+    display: flex;
+    align-items: flex-start; /* Zarovnání textu k horní části checkboxu */
+    gap: 8px;
+    margin-bottom: 20px;
+    max-width: 400px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.day3-checkbox-label input[type="checkbox"] {
+    margin-top: 3px; /* Optické zarovnání */
+    flex-shrink: 0;
+}
+
+.day3-checkbox-label a {
+    color: #a04040; /* Barva brandu/odkazu */
+    text-decoration: underline;
+}
+
+
+.day-4 .day-description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+/* Styly pro Form / Inputy */
+.day-4 .kailu-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.day-4 .email-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.day-4 .gdpr-label {
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+/* Styly pro Krabičky */
+.day-4 .box-selection-area {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.day-4 .boxes-wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.day-4 .gift-box {
+    background: #fff0f0; /* Světlejší pozadí pro krabičku */
+    border: 2px solid #a04040;
+    border-radius: 8px;
+    width: 80px;
+    height: 80px;
+    font-size: 3em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.day-4 .gift-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styly pro Výsledek */
+.day-4 .result-panel {
+    background: #fcfcfc;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.day-4 .prize-info {
+    border-bottom: 2px dashed #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.day-4 .code-display {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+.day-4 .coupon-code {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #a04040;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.4em;
+    margin-top: 5px;
+    letter-spacing: 2px;
+}
+
+.day-4 .terms {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.day-4 .cta-button {
+    display: inline-block;
+    background-color: #5cb85c; /* Typické zelené CTA */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.day-4 .cta-button:hover {
+    background-color: #4cae4c;
+}
+/* Styly pro obrázky výher */
+.day-4 .prize-image {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Pro menší obrazovky */
+@media (max-width: 480px) {
+    .day-4 .prize-image {
+        max-width: 150px;
+        height: 150px;
+    }
+}

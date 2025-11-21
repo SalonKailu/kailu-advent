@@ -1,0 +1,438 @@
+.day1-container {
+  background: linear-gradient(135deg, #ffffff 0%, #f1eae2 100%);
+  border-radius: 30px;
+  padding: 40px 30px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #faa4a6;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(250, 164, 166, 0.3);
+}
+
+.close-btn:hover {
+  background: #f88b8e;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* FORMULÁŘ */
+.day1-form {
+  text-align: center;
+}
+
+.day1-form h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.email-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #faa4a6;
+  box-shadow: 0 0 0 3px rgba(250, 164, 166, 0.1);
+}
+
+.consent-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.consent-label input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.consent-label a {
+  color: #faa4a6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.consent-label a:hover {
+  text-decoration: underline;
+}
+
+.play-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #faa4a6 0%, #f88b8e 100%);
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 6px 20px rgba(250, 164, 166, 0.4);
+}
+
+.play-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(250, 164, 166, 0.5);
+}
+
+.play-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.info-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(250, 164, 166, 0.1);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.info-box p {
+  margin: 5px 0;
+}
+
+/* VÝHRA */
+.day1-prize {
+  text-align: center;
+}
+
+.day1-prize h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.prize-text {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.prize-text strong {
+  color: #faa4a6;
+  font-size: 1.5rem;
+}
+
+.code-box {
+  background: white;
+  border: 3px dashed #faa4a6;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.code {
+  font-family: 'Courier New', monospace;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #faa4a6;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.copy-btn {
+  background: #faa4a6;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.copy-btn:hover {
+  background: #f88b8e;
+  transform: scale(1.05);
+}
+
+.prize-info {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.prize-info p {
+  margin: 5px 0;
+}
+
+.shop-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #faa4a6 0%, #f88b8e 100%);
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 6px 20px rgba(250, 164, 166, 0.4);
+  margin-bottom: 20px;
+}
+
+.shop-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(250, 164, 166, 0.5);
+}
+
+.live-feed {
+  background: rgba(250, 164, 166, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.feed-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.live-feed p {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .day1-container {
+    padding: 30px 20px;
+  }
+  
+  .day1-form h1,
+  .day1-prize h1 {
+    font-size: 2rem;
+  }
+  
+  .code {
+    font-size: 1.4rem;
+  }
+}
+
+/* ŠKRÁBACÍ LOS */
+.day1-scratch {
+  text-align: center;
+}
+
+.day1-scratch h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.scratch-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.scratch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scratch-box {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.scratch-box:not(.revealed) {
+  background: linear-gradient(135deg, #d4a5a5 0%, #c49393 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(212, 165, 165, 0.4);
+}
+
+.scratch-box:not(.revealed):hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(212, 165, 165, 0.5);
+}
+
+.scratch-box:not(.revealed):active {
+  transform: scale(0.95);
+}
+
+.scratch-box.revealed {
+  background: white;
+  border: 3px solid #faa4a6;
+  color: #faa4a6;
+  cursor: default;
+  animation: scratchReveal 0.6s ease;
+  position: relative;
+  overflow: visible;
+}
+
+.scratch-box.revealed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #d4a5a5 0%, #c49393 100%);
+  border-radius: 15px;
+  animation: scratchFade 0.6s ease forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scratch-box.revealed .scratch-number {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes scratchFade {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.97) rotate(-3deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9) rotate(-8deg);
+  }
+}
+
+@keyframes scratchReveal {
+  0% {
+    transform: scale(0.95);
+  }
+  40% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.scratch-hidden {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.scratch-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.scratch-hint {
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .scratch-grid {
+    gap: 10px;
+    max-width: 280px;
+  }
+  
+  .scratch-number {
+    font-size: 1.2rem;
+  }
+  
+  .scratch-hidden {
+    font-size: 2.5rem;
+  }
+}
+.scratch-win-hint {
+  font-size: 1.1rem;
+  color: #faa4a6;
+  font-weight: 600;
+  margin-top: 20px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}

@@ -1,0 +1,461 @@
+/* Day2.css - Kurz líčení styly */
+
+.day2-container {
+  min-height: 100vh;
+  background:transparent;
+  padding: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header */
+.day2-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.day2-badge {
+  display: inline-block;
+  background: transparent;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.day2-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.day2-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Content */
+.day2-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: transparent;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/* Price box */
+.day2-price-box {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #fff0f0, #ffe5e5);
+  border-radius: 15px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.day2-original-price {
+  font-size: 1.8rem;
+  color: #999;
+  text-decoration: line-through;
+  margin-bottom: 5px;
+}
+
+.day2-sale-price {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #d4a5a5;
+  margin-bottom: 10px;
+}
+
+.day2-savings {
+  display: inline-block;
+  background: #d4a5a5;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.day2-price-box {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.day2-price-box:hover {
+  transform: scale(1.02);
+}
+
+.day2-validity {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Description */
+.day2-description h2 {
+  color: #d4a5a5;
+  margin: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.day2-intro {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.day2-intro p {
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* Features */
+.day2-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.day2-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.day2-feature:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.day2-feature.bonus {
+  background: #fff0f0;
+  border: 2px solid #d4a5a5;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.feature-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.feature-content p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Location */
+.day2-location {
+  text-align: center;
+  padding: 25px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.day2-location h3 {
+  color: #d4a5a5;
+  margin-bottom: 10px;
+}
+
+.day2-location p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.day2-duration {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Form */
+.day2-form {
+  background: #fafafa;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.day2-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.day2-input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.day2-input:focus {
+  outline: none;
+  border-color: #d4a5a5;
+}
+
+.day2-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.day2-checkbox-label input[type="checkbox"] {
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.day2-checkbox-label a {
+  color: #d4a5a5;
+  text-decoration: none;
+}
+
+.day2-checkbox-label a:hover {
+  text-decoration: underline;
+}
+
+.day2-submit {
+  width: 100%;
+  background: #d4a5a5;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.day2-submit:hover {
+  background: #c09090;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 165, 165, 0.4);
+}
+
+/* Shop button */
+.day2-shop-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #d4a5a5, #e09090);
+  color: white;
+  padding: 20px 40px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.day2-shop-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(212, 165, 165, 0.5);
+}
+
+/* Gift idea */
+.day2-gift-idea {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  font-size: 1.05rem;
+}
+
+/* Thank you screen */
+.day2-thank-you {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.thank-you-content h2 {
+  color: #d4a5a5;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.thank-you-content > p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.day2-next-steps {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.day2-next-steps h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.day2-next-steps ul {
+  list-style: none;
+  padding: 0;
+}
+
+.day2-next-steps li {
+  padding: 10px 0;
+  color: #555;
+  font-size: 1.05rem;
+}
+
+.day2-shop-button-final {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4a5a5, #e09090);
+  color: white;
+  padding: 18px 40px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.day2-shop-button-final:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(212, 165, 165, 0.5);
+}
+
+.day2-tomorrow {
+  font-size: 1.1rem;
+  color: #d4a5a5;
+  font-weight: bold;
+}
+
+/* Discount code box */
+.day2-discount-code {
+  margin: 20px;
+  background: #fff7f7;
+  border: 2px dashed #d4a5a5;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.day2-discount-code h3 {
+  color: #d4a5a5;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.day2-discount-code p {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.day2-discount-code .code-box {
+  display: inline-block;
+  background: white;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 2px solid #d4a5a5;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #d4a5a5;
+  letter-spacing: 2px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .day2-container {
+    padding: 15px;
+  }
+
+  .day2-content {
+    padding: 15px;
+  }
+
+  .day2-title {
+    font-size: 2rem;
+  }
+
+  .day2-sale-price {
+    font-size: 2.5rem;
+  }
+
+  .day2-features {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .day2-shop-button {
+    font-size: 18px;
+    padding: 18px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .day2-container {
+    padding: 10px;
+  }
+
+  .day2-content {
+    padding: 20px;
+  }
+
+  .day2-title {
+    font-size: 1.8rem;
+  }
+
+  .day2-subtitle {
+    font-size: 1rem;
+  }
+
+  .day2-sale-price {
+    font-size: 2rem;
+  }
+
+  .day2-original-price {
+    font-size: 1.5rem;
+  }
+
+  .day2-feature {
+    padding: 15px;
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+
+  .day2-form {
+    padding: 20px;
+  }
+
+  .day2-shop-button {
+    font-size: 16px;
+    padding: 16px 25px;
+  }
+}
