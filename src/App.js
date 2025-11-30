@@ -33,29 +33,33 @@ function App() {
 });
   
  // Automatické datum
-  const today = new Date();
-  const currentDay = today.getDate();
-  const currentMonth = 12; // DOČASNĚ PRO TEST
-  
-  const days = Array.from({ length: 24 }, (_, i) => i + 1);
-  
+const today = new Date();
+const currentDay = today.getDate();
+const currentMonth = today.getMonth() + 1; // getMonth() vrací 0-11, proto +1
+
+const days = Array.from({ length: 24 }, (_, i) => i + 1);
+
 const handleDayClick = (day) => {
- if (day <= currentDay && currentMonth === 12) {
+  // Otevře se jen okénko dnešního dne v prosinci
+  if (currentMonth === 12 && day === currentDay) {
     setSelectedDay(day);
     const newOpenedDays = new Set([...openedDays, day]);
     setOpenedDays(newOpenedDays);
     localStorage.setItem('kailuAdventOpened', JSON.stringify([...newOpenedDays]));
   }
 };
-  const closeModal = () => {
-    setSelectedDay(null);
-  };
-  
-  const getDayStatus = (day) => {
-    if (openedDays.has(day)) return 'opened';
-    if (day <= currentDay && currentMonth === 12) return 'available';
-    return 'locked';
-  };
+
+const closeModal = () => {
+  setSelectedDay(null);
+};
+
+const getDayStatus = (day) => {
+  if (openedDays.has(day)) return 'opened';
+  // Pouze dnešní den je dostupný
+  if (currentMonth === 12 && day === currentDay) return 'available';
+  return 'locked';
+};
+
   
   return (
     <div className="App">
