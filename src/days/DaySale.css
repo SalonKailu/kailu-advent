@@ -1,0 +1,370 @@
+/* DaySale.css - Elegantní sdílené styly pro slevové/akční dny */
+/* Inspirováno Day3 + Day4, brand barvy: #faa4a6 (růžová), #f1eae2 (krémová) */
+
+
+/* ===== HEADER SEKCE ===== */
+.sale-header {
+  background: linear-gradient(135deg, #faa4a6 0%, #f8b4b6 100%);
+  padding: 30px 25px;
+  text-align: center;
+  position: relative;
+}
+
+
+
+.sale-emoji {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.sale-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: white;
+  margin: 0;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ===== CONTENT SEKCE ===== */
+.sale-content {
+  padding: 40px 25px 30px;
+}
+
+.sale-subtitle {
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.7;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* ===== KÓD BOX (pro dny s kódem) ===== */
+.sale-code-box {
+  background: linear-gradient(135deg, #fff9f9, #fff5f5);
+  border: 2px dashed #faa4a6;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sale-code-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(250,164,166,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.sale-code-box:hover::before {
+  left: 100%;
+}
+
+.sale-code-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(250, 164, 166, 0.25);
+  border-style: solid;
+}
+
+.sale-code-label {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sale-code {
+  font-family: 'Poppins', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #faa4a6;
+  letter-spacing: 4px;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background: white;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 2px 10px rgba(250,164,166,0.2);
+}
+
+.sale-code-hint {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.sale-code-copied {
+  color: #5cb85c !important;
+  font-weight: 600;
+}
+
+/* ===== INFO BOX (pro dny bez kódu) ===== */
+.sale-info-box {
+  background: linear-gradient(135deg, #f1eae2 0%, #fff9f7 100%);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 25px;
+  border: 1px solid rgba(250,164,166,0.2);
+}
+
+.sale-info-text {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.sale-info-text + .sale-info-text {
+  margin-top: 12px;
+}
+
+.sale-info-highlight {
+  color: #faa4a6;
+  font-weight: 600;
+}
+
+/* ===== CTA BUTTON ===== */
+.sale-button {
+  display: block;
+  width: 100%;
+  padding: 18px 30px;
+  
+  /* Animovaný gradient: krémová → zelená */
+  background: linear-gradient(90deg, #5cb85c 0%, #5cb85c 50%, #f1eae2 50%, #f1eae2 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  
+  transition: background-position 0.4s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.sale-button:hover {
+  background-position: 0 0;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(92, 184, 92, 0.35);
+}
+
+.sale-button:active {
+  transform: translateY(-1px);
+}
+
+/* ===== VALIDITY / PLATNOST ===== */
+.sale-validity {
+  text-align: center;
+  padding: 18px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #666;
+  border: 1px solid #f0f0f0;
+}
+
+.sale-validity-urgent {
+  display: block;
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ===== EXTENDED VALIDITY BADGE ===== */
+.sale-extended {
+  display: inline-block;
+  background: linear-gradient(135deg, #5cb85c, #4cae4c);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 12px;
+  box-shadow: 0 3px 10px rgba(92,184,92,0.3);
+}
+
+/* ===== BONUS INFO ===== */
+.sale-bonus {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+}
+
+.sale-bonus p {
+  margin: 6px 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.sale-bonus p:first-child {
+  color: #faa4a6;
+  font-weight: 600;
+}
+
+/* ===== DEKORATIVNÍ PRVKY ===== */
+.sale-decoration {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.sale-decoration span {
+  width: 8px;
+  height: 8px;
+  background: #faa4a6;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.sale-decoration span:nth-child(2) {
+  opacity: 0.75;
+}
+
+.sale-decoration span:nth-child(3) {
+  opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .sale-container {
+    padding: 20px 15px;
+  }
+
+  .sale-header {
+    padding: 25px 20px;
+  }
+
+  .sale-emoji {
+    font-size: 3rem;
+  }
+
+  .sale-title {
+    font-size: 1.4rem;
+  }
+
+  .sale-content {
+    padding: 35px 20px 25px;
+  }
+
+  .sale-code {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .sale-button {
+    padding: 16px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sale-container {
+    padding: 15px 10px;
+  }
+
+  .sale-header {
+    padding: 20px 15px;
+  }
+
+
+
+  .sale-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .sale-title {
+    font-size: 1.25rem;
+  }
+
+  .sale-content {
+    padding: 30px 15px 20px;
+  }
+
+  .sale-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .sale-code-box {
+    padding: 20px 15px;
+  }
+
+  .sale-code {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    padding: 8px 15px;
+  }
+
+  .sale-code-label {
+    font-size: 0.8rem;
+  }
+
+  .sale-info-box {
+    padding: 20px 15px;
+  }
+
+  .sale-info-text {
+    font-size: 1rem;
+  }
+
+  .sale-button {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+  }
+
+  .sale-validity {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  .sale-bonus {
+    padding: 15px;
+  }
+
+  .sale-bonus p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== ANIMACE ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sale-card {
+  animation: fadeInUp 0.5s ease-out;
+}

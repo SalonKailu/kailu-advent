@@ -1,0 +1,348 @@
+/* DayBox.css - Styly pro "Co je v krabici" dny */
+
+/* ===== HEADER ===== */
+.box-header {
+  text-align: center;
+  padding: 25px 20px;
+  background: linear-gradient(135deg, #faa4a6 0%, #f8b4b6 100%);
+}
+
+.box-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.box-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: white;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ===== CONTENT ===== */
+.box-content {
+  padding: 30px 25px;
+}
+
+/* ===== POPIS PRODUKTU ===== */
+.box-description {
+  background: linear-gradient(135deg, #faf8f5, #fff);
+  border: 2px dotted #faa4a6;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.box-description::before {
+  content: '✨';
+  position: absolute;
+  top: -12px;
+  left: 25px;
+  font-size: 1.3rem;
+}
+
+.box-description p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.box-description p + p {
+  margin-top: 15px;
+}
+
+.box-highlight {
+  color: #faa4a6;
+  font-weight: 600;
+}
+
+/* ===== OTÁZKA ===== */
+.box-question {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.box-question-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* ===== MOŽNOSTI ===== */
+.box-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.box-option {
+  padding: 18px 22px;
+  background: white;
+  border: 2px solid #f1eae2;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.box-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(250, 164, 166, 0.1), transparent);
+  transition: left 0.4s ease;
+}
+
+.box-option:hover::before {
+  left: 100%;
+}
+
+.box-option:hover {
+  border-color: #faa4a6;
+  background: #fffafa;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(250, 164, 166, 0.15);
+}
+
+.box-option.correct {
+  border-color: #5cb85c;
+  background: linear-gradient(135deg, #f5fff5, #eeffee);
+  color: #3d7a3d;
+  pointer-events: none;
+}
+
+.box-option.wrong {
+  border-color: #e8a0a0;
+  background: linear-gradient(135deg, #fff8f8, #fff0f0);
+  color: #996666;
+  pointer-events: none;
+}
+
+.box-option.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ===== VÝSLEDEK ===== */
+.box-result {
+  text-align: center;
+  padding: 30px 25px;
+  border-radius: 20px;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Výhra */
+.box-result.win {
+  background: linear-gradient(135deg, #f0fff0, #e8f8e8);
+  border: 2px solid #c8e6c8;
+}
+
+.box-result-emoji {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.box-result-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.box-result.win .box-result-title {
+  color: #2d5a2d;
+}
+
+.box-result-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.box-result.win .box-result-text {
+  color: #3d6b3d;
+}
+
+/* Kód */
+.box-code-container {
+  background: white;
+  border: 2px dashed #5cb85c;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.box-code-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 20px rgba(92, 184, 92, 0.2);
+}
+
+.box-code-label {
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.box-code {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #5cb85c;
+  letter-spacing: 3px;
+}
+
+.box-code-hint {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 8px;
+}
+
+.box-code-copied {
+  color: #5cb85c !important;
+  font-weight: 600;
+}
+
+/* Prohra */
+.box-result.lose {
+  background: linear-gradient(135deg, #fff5f5, #ffefef);
+  border: 2px solid #f0d0d0;
+}
+
+.box-result.lose .box-result-title {
+  color: #8b5a5a;
+}
+
+.box-result.lose .box-result-text {
+  color: #7a5555;
+}
+
+.box-correct-answer {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.box-correct-answer strong {
+  color: #faa4a6;
+}
+
+/* CTA */
+.box-cta {
+  display: block;
+  width: 100%;
+  padding: 18px 30px;
+  background: linear-gradient(90deg, #5cb85c 0%, #5cb85c 50%, #f1eae2 50%, #f1eae2 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-position 0.4s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.box-cta:hover {
+  background-position: 0 0;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(92, 184, 92, 0.35);
+}
+
+/* Footer */
+.box-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #f1eae2;
+}
+
+.box-footer p {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .box-header {
+    padding: 20px 15px;
+  }
+
+  .box-title {
+    font-size: 1.35rem;
+  }
+
+  .box-content {
+    padding: 25px 15px;
+  }
+
+  .box-description {
+    padding: 20px;
+  }
+
+  .box-description p {
+    font-size: 0.95rem;
+  }
+
+  .box-question-text {
+    font-size: 1.1rem;
+  }
+
+  .box-option {
+    padding: 15px 18px;
+  }
+
+  .box-result {
+    padding: 25px 20px;
+  }
+
+  .box-code {
+    font-size: 1.5rem;
+  }
+
+  .box-cta {
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+}

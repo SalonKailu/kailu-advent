@@ -23,7 +23,7 @@ const Day5 = () => {
               <li>Zásilkovna - ZDARMA</li>
               <li>Balíkovna - ZDARMA</li>
               <li>PPL - ZDARMA</li>
-              <li>Osobní odběr Brno - ZDARMA (vždy)</li>
+              <li>Osobní odběr Brno - ZDARMA (jako vždy 😉)</li>
             </ul>
           </div>
 
@@ -57,11 +57,11 @@ const Day5 = () => {
           </div>
           <div className="benefit">
             <span className="benefit-icon">🎄</span>
-            <span>Doručení před Vánoci</span>
+            <span>95% balíčků doručeno do 2 dnů</span>
           </div>
           <div className="benefit">
             <span className="benefit-icon">💝</span>
-            <span>Dárkové balení</span>
+            <span>Možnost přidat dárkové balení k většině produktů</span>
           </div>
         </div>
       </div>

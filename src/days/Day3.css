@@ -27,7 +27,7 @@
 
 .day3-intro h2 {
   color: #333;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -194,7 +194,7 @@ border-radius: 0;
 }
 
 .timer-number {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   font-weight: bold;
   color: #333;
   line-height: 1;
@@ -245,16 +245,16 @@ border-radius: 0;
 /* Question */
 .day3-question-container {
   background: white;
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .day3-question {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: #333;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   line-height: 1.4;
 }
 
@@ -268,14 +268,14 @@ border-radius: 0;
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 20px 25px;
+  padding: 15px 20px;
   background: #f9f9f9;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
 }
 
 .day3-option:hover:not(.disabled) {
@@ -402,7 +402,7 @@ border-radius: 0;
 }
 
 .day3-code {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #d4a5a5;
   letter-spacing: 3px;
@@ -495,7 +495,7 @@ border-radius: 0;
   }
 
   .day3-intro h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .day3-question-container {
@@ -536,7 +536,7 @@ border-radius: 0;
   }
 
   .day3-intro h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .day3-intro p {

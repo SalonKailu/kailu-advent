@@ -119,7 +119,7 @@ const handleReveal = (index) => {
         const wonAmount = parseInt(amount);
         const wonPrize = {
           amount: wonAmount,
-          minPurchase: wonAmount <= 200 ? 500 : 1000,
+          minPurchase: wonAmount === 100 ? 500 : (wonAmount === 200 ? 700 : 1000),
           code: generateCode(wonAmount)
         };
 

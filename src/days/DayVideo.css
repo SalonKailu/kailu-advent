@@ -1,0 +1,620 @@
+/* DayVideo.css - Moderní styly pro video dny */
+
+/* ===== HEADER ===== */
+.video-header {
+  text-align: center;
+  padding: 25px 20px;
+  background: linear-gradient(135deg, #faa4a6 0%, #f8b4b6 100%);
+}
+
+.video-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.video-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.7rem;
+  color: white;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ===== VIDEO WRAPPER ===== */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #000;
+}
+
+.video-wrapper video {
+  width: 100%;
+  display: block;
+}
+
+.video-placeholder {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  gap: 15px;
+}
+
+.video-placeholder-icon {
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.video-placeholder-text {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* ===== CONTENT ===== */
+.video-content {
+  padding: 30px 25px;
+}
+
+.video-intro {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ===== PRODUKTY GRID ===== */
+.video-products {
+  margin-bottom: 30px;
+}
+
+.video-products-title {
+  font-size: 1rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 15px;
+  background: #fafafa;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(250, 164, 166, 0.2);
+  border-color: #faa4a6;
+}
+
+.product-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.product-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.product-price {
+  font-size: 0.85rem;
+  color: #faa4a6;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ===== RODINA SEKCE (Den 17) ===== */
+.family-section {
+  margin-bottom: 25px;
+}
+
+.family-member {
+  background: #fafafa;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.family-member:last-child {
+  margin-bottom: 0;
+}
+
+.family-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.family-label-emoji {
+  font-size: 1.5rem;
+}
+
+.family-products {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.family-product-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  background: white;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: 1px solid #eee;
+}
+
+.family-product-link:hover {
+  border-color: #faa4a6;
+  color: #faa4a6;
+  transform: translateX(5px);
+}
+
+.family-product-link::before {
+  content: '→';
+  color: #faa4a6;
+  font-weight: bold;
+}
+
+/* ===== CTA BUTTON ===== */
+.video-cta {
+  display: block;
+  width: 100%;
+  padding: 18px 30px;
+  background: linear-gradient(90deg, #5cb85c 0%, #5cb85c 50%, #f1eae2 50%, #f1eae2 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: background-position 0.4s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.video-cta:hover {
+  background-position: 0 0;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(92, 184, 92, 0.35);
+}
+
+/* ===== FOOTER NOTE ===== */
+.video-footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+.video-footer p {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+/* ===== DEN 8 - KVÍZ PŘED VIDEEM ===== */
+
+/* Celý kvíz wrapper s puntíkovaným rámečkem */
+.quiz-intro {
+  padding: 30px 20px;
+  margin: 20px;
+  background: white;
+  border: 3px dotted #faa4a6;
+  border-radius: 25px;
+  position: relative;
+}
+
+/* Dekorativní rohy */
+.quiz-intro::before,
+.quiz-intro::after {
+  content: '✨';
+  position: absolute;
+  font-size: 1.5rem;
+}
+
+.quiz-intro::before {
+  top: -12px;
+  left: 20px;
+  padding: 0 8px;
+}
+
+.quiz-intro::after {
+  bottom: -12px;
+  right: 20px;
+
+  padding: 0 8px;
+}
+
+.quiz-intro-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.quiz-intro-text {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Otázka */
+.quiz-question {
+  background: linear-gradient(135deg, #faf8f5 0%, #fff 100%);
+  border-radius: 20px;
+  padding: 25px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(250, 164, 166, 0.1);
+}
+
+.quiz-question-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Možnosti odpovědí */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quiz-option {
+  padding: 18px 22px;
+  background: white;
+  border: 2px solid #f1eae2;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(250, 164, 166, 0.1), transparent);
+  transition: left 0.4s ease;
+}
+
+.quiz-option:hover::before {
+  left: 100%;
+}
+
+.quiz-option:hover {
+  border-color: #faa4a6;
+  background: #fffafa;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(250, 164, 166, 0.15);
+}
+
+.quiz-option.selected {
+  border-color: #faa4a6;
+  background: linear-gradient(135deg, #fff5f5, #fff0f0);
+  color: #333;
+}
+
+.quiz-option.correct {
+  border-color: #5cb85c;
+  background: linear-gradient(135deg, #f5fff5, #eeffee);
+  color: #3d7a3d;
+}
+
+.quiz-option.correct::after {
+  content: ' ✓';
+  color: #5cb85c;
+  font-weight: bold;
+}
+
+.quiz-option.wrong {
+  border-color: #e8a0a0;
+  background: linear-gradient(135deg, #fff8f8, #fff0f0);
+  color: #996666;
+}
+
+/* Výsledek odpovědi */
+.quiz-result {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quiz-result.correct {
+  background: linear-gradient(135deg, #f0fff0, #e8f8e8);
+  color: #3d6b3d;
+  border: 1px solid #c8e6c8;
+}
+
+.quiz-result.wrong {
+  background: linear-gradient(135deg, #fff5f5, #ffefef);
+  color: #6b4a4a;
+  border: 1px solid #f0d0d0;
+}
+
+/* Progress / Footer */
+.quiz-intro .video-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #f1eae2;
+}
+
+.quiz-intro .video-footer p {
+  color: #bbb;
+  font-size: 0.85rem;
+}
+/* ===== CHECKLIST ===== */
+.checklist {
+  background: linear-gradient(135deg, #fff 0%, #faf8f5 100%);
+  border: 2px solid #f1eae2;
+  border-radius: 20px;
+  padding: 28px 25px;
+  margin: 25px 0;
+  position: relative;
+}
+
+.checklist::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #faa4a6, transparent);
+  border-radius: 2px;
+}
+
+.checklist-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 22px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #f1eae2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checklist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f5f0eb;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  transition: all 0.2s ease;
+}
+
+.checklist-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.checklist-item:hover {
+  padding-left: 8px;
+  color: #333;
+}
+
+.checklist-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #5cb85c, #4cae4c);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 1px;
+  box-shadow: 0 2px 8px rgba(92, 184, 92, 0.3);
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .video-header {
+    padding: 20px 15px;
+  }
+
+  .video-title {
+    font-size: 1.4rem;
+  }
+
+  .video-content {
+    padding: 25px 20px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-card {
+    padding: 15px 12px;
+  }
+
+  .product-emoji {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-header {
+    padding: 15px;
+  }
+
+  .video-title {
+    font-size: 1.25rem;
+  }
+
+  .video-badge {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+
+  .video-content {
+    padding: 20px 15px;
+  }
+
+  .video-intro {
+    font-size: 1rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .product-emoji {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .product-name {
+    text-align: left;
+  }
+
+  .video-cta {
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+
+  .family-member {
+    padding: 20px;
+  }
+
+  .checklist {
+    padding: 22px 18px;
+    margin: 20px 0;
+  }
+
+  .checklist-title {
+    font-size: 1.05rem;
+  }
+
+  .checklist-item {
+    padding: 12px 0;
+    font-size: 0.9rem;
+    gap: 12px;
+  }
+
+  .checklist-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+.quiz-intro {
+    padding: 25px 15px;
+    margin: 15px 10px;
+    border-width: 2px;
+  }
+
+  .quiz-intro::before,
+  .quiz-intro::after {
+    font-size: 1.2rem;
+  }
+
+  .quiz-question {
+    padding: 20px 15px;
+  }
+
+  .quiz-question-text {
+    font-size: 1rem;
+  }
+
+  .quiz-option {
+    padding: 15px 18px;
+    font-size: 0.95rem;
+  }
+}
