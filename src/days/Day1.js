@@ -1,15 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Day1.css';
 import ScratchCard from './ScratchCard';
 import { saveEmailToNewsletter } from '../apiService';
 
 function Day1({ onClose }) {
-  const [email, setEmail] = useState('');
-  const [consent, setConsent] = useState(false);
-  const [gameState, setGameState] = useState('form'); // form / scratch / prize
+  const [gameState, setGameState] = useState('loading'); // loading / scratch / prize / already-played
   const [scratchNumbers, setScratchNumbers] = useState([]);
   const [revealed, setRevealed] = useState([]);
   const [prize, setPrize] = useState(null);
+  const [copyMessage, setCopyMessage] = useState('');
+
+  // Kontrola při načtení - už hráli?
+  useEffect(() => {
+    const existingPrizes = JSON.parse(localStorage.getItem('adventPrizes') || '[]');
+    const alreadyPlayedDay1 = existingPrizes.some(p => p.day === 1);
+
+    if (alreadyPlayedDay1) {
+      // Už hráli - najdi jejich výhru a ukaž ji
+      const existingPrize = existingPrizes.find(p => p.day === 1);
+      if (existingPrize) {
+        setPrize({
+          amount: existingPrize.prize,
+          minPurchase: existingPrize.minPurchase,
+          code: existingPrize.code
+        });
+        setGameState('already-played');
+      }
+    } else {
+      // Ještě nehráli - spusť hru rovnou
+      startGame();
+    }
+  }, []);
 
   // Generování čísel pro los
   const generateScratchNumbers = () => {
@@ -44,193 +65,203 @@ function Day1({ onClose }) {
   };
 
   // Generování kódu s pevnými, ale pro každou částku unikátními sufixy
-const generateCode = (amount) => {
-    // Definice pevných, ale unikátních sufixů
-    // Tuto mapu bys měl používat i pro ověření na svém e-shopu!
+  const generateCode = (amount) => {
     const uniqueSuffixes = {
-        100: 'QJ3', 
-        200: 'XF9',
-        300: 'LK5',
-        400: 'RM2',
-        500: 'PZ7',
+      100: 'QJ3', 
+      200: 'XF9',
+      300: 'LK5',
+      400: 'RM2',
+      500: 'PZ7',
     };
 
     const suffix = uniqueSuffixes[amount] || 'ERR'; 
-
-    // Formát: KA + Částka + Sufix
     return `KA${amount}${suffix}`;
-};
+  };
 
-  // Spuštění hry
-  const handlePlay = () => {
-    if (!email || !consent) {
-      alert('Prosím vyplň email a souhlas s podmínkami');
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert('Prosím zadej platný email');
-      return;
-    }
-
-// -----------------------------------------------------------------
-    // NOVÉ: VOLANIE CENTRÁLNEJ FUNKCIE PRE UKLADANIE DO GOOGLE SHEETS
-    // -----------------------------------------------------------------
-    // Uloží e-mail, súhlas a zdroj ('Kailu_Advent_Kviz_Den_1') do Tabuľky Google
-    saveEmailToNewsletter(email, consent, 'Kailu_Advent_Kviz_Den_1'); 
-
-    // Pôvodné uloženie emailu do lokálneho úložiska (ponechávame pre lokálnu kontrolu hry)
-    const existingEmails = JSON.parse(localStorage.getItem('adventEmails') || '[]');
-    existingEmails.push({
-      email: email,
-      day: 1,
-      timestamp: new Date().toISOString()
-    });
-    localStorage.setItem('adventEmails', JSON.stringify(existingEmails));
-
-    // Vygeneruj čísla pro škrábání
+  // Spuštění hry - nyní bez emailu
+  const startGame = () => {
     const numbers = generateScratchNumbers();
     setScratchNumbers(numbers);
     setRevealed(Array(7).fill(false));
     setGameState('scratch');
   };
 
-// Odkrytí políčka
-const handleReveal = (index) => {
-  if (revealed[index]) return;
-  
-  // Animovaný delay
-  setTimeout(() => {
-    const newRevealed = [...revealed];
-    newRevealed[index] = true;
-    setRevealed(newRevealed);
-
-    // Zkontroluj, jestli má 3 stejné
-    const revealedNumbers = scratchNumbers.filter((_, i) => newRevealed[i]);
+  // Odkrytí políčka
+  const handleReveal = (index) => {
+    if (revealed[index]) return;
     
-    const counts = {};
-    revealedNumbers.forEach(num => {
-      counts[num] = (counts[num] || 0) + 1;
-    });
+    setTimeout(() => {
+      const newRevealed = [...revealed];
+      newRevealed[index] = true;
+      setRevealed(newRevealed);
 
-    Object.keys(counts).forEach(amount => {
-      if (counts[amount] >= 3) {
-        const wonAmount = parseInt(amount);
-        const wonPrize = {
-          amount: wonAmount,
-          minPurchase: wonAmount === 100 ? 500 : (wonAmount === 200 ? 700 : 1000),
-          code: generateCode(wonAmount)
-        };
+      // Zkontroluj, jestli má 3 stejné
+      const revealedNumbers = scratchNumbers.filter((_, i) => newRevealed[i]);
+      
+      const counts = {};
+      revealedNumbers.forEach(num => {
+        counts[num] = (counts[num] || 0) + 1;
+      });
 
-        setPrize(wonPrize);
+      Object.keys(counts).forEach(amount => {
+        if (counts[amount] >= 3) {
+          const wonAmount = parseInt(amount);
+          const wonPrize = {
+            amount: wonAmount,
+            minPurchase: wonAmount === 100 ? 500 : (wonAmount === 200 ? 700 : 1000),
+            code: generateCode(wonAmount)
+          };
 
-        const prizes = JSON.parse(localStorage.getItem('adventPrizes') || '[]');
-        prizes.push({
-          email: email,
-          day: 1,
-          prize: wonAmount,
-          code: wonPrize.code,
-          minPurchase: wonPrize.minPurchase,
-          timestamp: new Date().toISOString(),
-          used: false
-        });
-        localStorage.setItem('adventPrizes', JSON.stringify(prizes));
+          setPrize(wonPrize);
 
-        // Počkej než doskrábou VŠE!
-        // (Zkontroluj jestli mají všechna políčka odkrytá)
-        const allRevealed = newRevealed.every(r => r === true);
-        
-        if (allRevealed) {
-          // Všechno odkryté → ukaž výhru po 1 sekundě
-          setTimeout(() => {
-            setGameState('prize');
-          }, 1000);
-        } else {
-          // Ještě ne všechno → ukaž hint
-          // (můžeme přidat pulsující text "Máš to! Ale pro jistotu doškrábej i zbylá políčka!")
+          // Ulož výhru do localStorage (pro blokování opakované hry)
+          const prizes = JSON.parse(localStorage.getItem('adventPrizes') || '[]');
+          
+          // Zkontroluj, jestli už není uložená (pro jistotu)
+          const alreadySaved = prizes.some(p => p.day === 1);
+          if (!alreadySaved) {
+            prizes.push({
+              day: 1,
+              prize: wonAmount,
+              code: wonPrize.code,
+              minPurchase: wonPrize.minPurchase,
+              timestamp: new Date().toISOString(),
+              used: false
+            });
+            localStorage.setItem('adventPrizes', JSON.stringify(prizes));
+          }
+
+          // Zkontroluj jestli mají všechna políčka odkrytá
+          const allRevealed = newRevealed.every(r => r === true);
+          
+          if (allRevealed) {
+            setTimeout(() => {
+              setGameState('prize');
+            }, 1000);
+          }
         }
-      }
-    });
-  }, 300); // 300ms delay = efekt "škrábání"
-};
-
-  // Zkopírování kódu
-  const copyCode = () => {
-    navigator.clipboard.writeText(prize.code);
-    alert('Kód zkopírován! ✅');
+      });
+    }, 300);
   };
+
+  // VYLEPŠENÉ kopírování kódu - funguje i v iframe
+  const copyCode = async () => {
+    const textToCopy = prize.code;
+    
+    try {
+      // Metoda 1: Moderní Clipboard API s permissions
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(textToCopy);
+        setCopyMessage('✅ Kód zkopírován!');
+        setTimeout(() => setCopyMessage(''), 3000);
+        return;
+      }
+    } catch (err) {
+      console.log('Clipboard API failed, trying fallback...');
+    }
+
+    // Metoda 2: Fallback pro iframe - vytvoří textové pole a zkopíruje
+    try {
+      const textArea = document.createElement('textarea');
+      textArea.value = textToCopy;
+      
+      // Stylování aby nebylo vidět
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      textArea.style.opacity = '0';
+      
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      
+      if (successful) {
+        setCopyMessage('✅ Kód zkopírován!');
+        setTimeout(() => setCopyMessage(''), 3000);
+        return;
+      }
+    } catch (err) {
+      console.log('Fallback copy failed');
+    }
+
+    // Metoda 3: Pokud nic nefunguje - ukaž kód k ručnímu zkopírování
+    setCopyMessage('📋 Zkopíruj ručně: ' + textToCopy);
+    
+    // Vyber text v kódu pro snadné zkopírování
+    const codeElement = document.querySelector('.code');
+    if (codeElement && window.getSelection) {
+      const range = document.createRange();
+      range.selectNodeContents(codeElement);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+  };
+
+  // Loading state
+  if (gameState === 'loading') {
+    return (
+      <div className="day1-container">
+        <button className="close-btn" onClick={onClose}>✕</button>
+        <div className="loading">🎄 Načítám...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="day1-container">
       <button className="close-btn" onClick={onClose}>✕</button>
-      
-      {gameState === 'form' && (
-        // FORMULÁŘ
-        <div className="day1-form">
-          <h1>🎄 Vánoční los</h1>
-          <p className="subtitle">Najdi tři stejné částky a vyhraj!</p>
+
+      {gameState === 'already-played' && prize && (
+        // UŽ HRÁLI - UKAŽ JEJICH PŘEDCHOZÍ VÝHRU
+        <div className="day1-prize">
+          <h1>Už jsi hrál/a!</h1>
+          <p className="prize-text">Tvoje výhra z dnešního dne: <strong>{prize.amount} Kč</strong></p>
           
-          <div className="form-group">
-            <label>📧 Zadej email pro tvůj slevový kód:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="tvuj@email.cz"
-              className="email-input"
-            />
+          <div className="code-box">
+            <div className="code">{prize.code}</div>
+            <button className="copy-btn" onClick={copyCode}>
+              📋 Zkopírovat kód
+            </button>
+            {copyMessage && <div className="copy-message">{copyMessage}</div>}
           </div>
 
-          <div className="consent-group">
-            <label className="consent-label">
-              <input
-                type="checkbox"
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
-              />
-              <span>
-                Souhlasím s{' '}
-                <a 
-                  href="https://www.kailushop.cz/podminky-advent" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  podmínkami hry
-                </a>
-                {' '}a se zasíláním obchodních sdělení (newsletteru) emailem
-              </span>
-            </label>
+          <div className="prize-info">
+            <p>💝 Platí na nákup nad {prize.minPurchase} Kč</p>
+            <p>⏰ Kód vyprší dnes o půlnoci</p>
+            <p>🗓️ Zítra tě čeká nová hra!</p>
           </div>
 
-          <button 
-            className="play-btn"
-            onClick={handlePlay}
-            disabled={!email || !consent}
+          <a 
+            href="https://www.kailushop.cz" 
+            className="shop-btn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            🎁 HRÁT
-          </button>
-
-        
+            🛍️ NAKOUPIT TEĎ
+          </a>
         </div>
       )}
 
       {gameState === 'scratch' && (
         // ŠKRÁBACÍ LOS
         <div className="day1-scratch">
-          <h1>🎰 NAJDI TŘI STEJNÉ A VYHRAJ!</h1>
-          <p className="scratch-subtitle">Klikni na políčka a odkryj částky</p>
+          <h1>NAJDI TŘI STEJNÉ A VYHRAJ!</h1>
+          <p className="scratch-subtitle">"Seškrábni" políčka a objev částky</p>
           
           <div className="scratch-grid">
-  {scratchNumbers.map((number, index) => (
-    <ScratchCard
-      key={index}
-      number={number}
-      onReveal={() => handleReveal(index)}
-      isRevealed={revealed[index]}
-    />
-  ))}
-</div>
+            {scratchNumbers.map((number, index) => (
+              <ScratchCard
+                key={index}
+                number={number}
+                onReveal={() => handleReveal(index)}
+                isRevealed={revealed[index]}
+              />
+            ))}
+          </div>
 
           <p className="scratch-hint">💡 Potřebuješ odkrýt 3 stejné částky</p>
         </div>
@@ -247,6 +278,7 @@ const handleReveal = (index) => {
             <button className="copy-btn" onClick={copyCode}>
               📋 Zkopírovat kód
             </button>
+            {copyMessage && <div className="copy-message">{copyMessage}</div>}
           </div>
 
           <div className="prize-info">
@@ -262,11 +294,10 @@ const handleReveal = (index) => {
           >
             🛍️ NAKOUPIT TEĎ
           </a>
-
-          
         </div>
       )}
     </div>
   );
 }
+
 export default Day1;
