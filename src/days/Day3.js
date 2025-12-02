@@ -407,19 +407,22 @@ const discountCodes = useMemo(() => ({
                                     <div className="day3-code">{finalCode}</div>
                                     <p className="day3-code-info">
                                         Kód platí do 3.12.2025 23:59<br />
-                                        Minimální nákup: 1000 Kč
+                                        Využít ho můžete při koupi pleťové sady - kompletní i cestovní!
                                     </p>
                                 </div>
                                 
                                 <a 
-                                    href="https://www.kailushop.cz" 
-                                    className="day3-shop-button"
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                >
-                                    POUŽÍT SLEVU V E-SHOPU
-                                </a>
-                            </>
+    href="https://www.kailushop.cz/sady" 
+    className="day3-shop-button"
+    target="_blank" 
+    rel="noopener noreferrer"
+>
+    Najít sadu pro moji pleť 💘
+</a>
+<p style={{ fontSize: '11px', color: '#888', marginTop: '5px', textAlign: 'center' }}>
+    PS: Ta cestovní sada je skvělá i jako "testovací". Vydrží cca 3-4 týdny.
+</p>
+</>
                         ) : (
                             <>
                                 <p className="day3-no-discount">
@@ -427,7 +430,7 @@ const discountCodes = useMemo(() => ({
                                     Ale nevadí, adventní kalendář vás obdarovává až do Štědrého dne! 💪
                                 </p>
                                 <p className="day3-tomorrow">
-                                    Budeme se těšit zítra!👋
+                                Budeme se těšit zase zítra!👋
                                 </p>
                             </>
                         )}
@@ -442,7 +445,7 @@ const discountCodes = useMemo(() => ({
                                     
                                     // Text zprávy
                                     const baseText = discount > 0 
-                                        ? "Získala jsem " + discount + "% slevu na kosmetiku díky Kailu kvízu! Zkus to taky: "
+                                        ? "Získala jsem " + discount + "% slevu na kosmetickou sadu díky Kailu kvízu! Zkus to taky: "
                                         : "Zkusila jsem štěstí adventním kvízu! 💪 Zkus to taky: ";
                                     
                                     // URL pro Messenger sdílení (Fallback)
