@@ -6,8 +6,9 @@ const Day2 = () => {
   return (
     <div className="day2-container">
       <div className="day2-header">
-<h1 className="day2-title">Poukaz na salonní ošetření 😍</h1>
-        <p className="day2-subtitle">💡Tip na dárek pro Brno a okolí</p>
+        <p className="day2-subtitle">Dneska tu mám něco pro Brňačky! </p>
+<h1 className="day2-title">10% sleva na poukaz 😍</h1>
+        
       </div>
 
       <div className="day2-content">
@@ -18,8 +19,7 @@ const Day2 = () => {
             
 
 <div className="day2-discount-code">
-  <h3>Sleva s kódem: <strong>POUKAZ10</strong></h3>
-  <p>Platí pouze do dnešní půnoci!</p>
+  <p>Nabídka platí pouze dnes!</p>
 </div></a>
 
           <div className="day2-description">
