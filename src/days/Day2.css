@@ -39,7 +39,7 @@
   max-width: 800px;
   margin: 0 auto;
   background: transparent;
-  padding: 10px;
+  padding: 5px;
   border-radius: 20px;
 }
 
@@ -360,7 +360,7 @@
   background: #fff7f7;
   border: 2px dashed #d4a5a5;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -378,7 +378,7 @@
 .day2-discount-code .code-box {
   display: inline-block;
   background: white;
-  padding: 10px 25px;
+  padding: 5px 15px;
   border-radius: 10px;
   border: 2px solid #d4a5a5;
   font-weight: bold;
@@ -433,7 +433,7 @@
   .day2-subtitle {
     font-size: 1rem;
   }
-  
+
 .day2-promo-image {
   width: 40%;
   max-width: 150px;
