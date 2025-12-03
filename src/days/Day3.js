@@ -203,20 +203,26 @@ const Day3 = () => {
 
     // Sdílení výsledku
     const shareResult = () => {
-        const text = discount > 0 
-            ? `Získala jsem ${discount}% slevu v Kailu skincare kvízu! 💄 Zkus to taky 👉 https://www.kailushop.cz/`
-            : `Zkusila jsem Kailu skincare kvíz! 💪 Zkus to taky 👉 https://www.kailushop.cz/`;
+        let text;
+        if (discount === 35) {
+            text = `Jsem skincare guru! 👑 Získala jsem ${discount}% slevu v Kailu kvízu. Zkus to taky 👉 https://www.kailushop.cz/`;
+        } else if (discount > 0) {
+            text = `Získala jsem ${discount}% slevu v Kailu skincare kvízu! 💄 Porazíš mě? 👉 https://www.kailushop.cz/`;
+        } else {
+            text = `Kailu skincare kvíz mě dostal 😅 Zvládneš to líp? 👉 https://www.kailushop.cz/`;
+        }
 
-        // Zkusíme nativní sdílení (mobil)
-        if (navigator.share) {
+        // Detekce mobilu
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        // Na mobilu zkusíme nativní sdílení, na desktopu rovnou kopírujeme
+        if (isMobile && navigator.share) {
             navigator.share({
                 text: text
             }).catch(() => {
-                // Fallback - zkopírovat do schránky
                 copyToClipboard(text);
             });
         } else {
-            // Desktop - zkopírovat do schránky
             copyToClipboard(text);
         }
     };
