@@ -393,7 +393,7 @@ border-radius: 0;
   background: #f9f9f9;
   padding: 25px;
   border-radius: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .day3-code-container p {
@@ -483,7 +483,7 @@ border-radius: 0;
 /* Responsive */
 @media (max-width: 768px) {
   .day3-container {
-    padding: 15px;
+    padding: 0px;
   }
 
   .day3-title {
@@ -527,12 +527,18 @@ border-radius: 0;
 
 @media (max-width: 480px) {
   .day3-title {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
   }
 
+.day3-container {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+  padding: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
   .day3-start, .day3-result {
-    padding: 20px;
+    padding: 15px;
   }
 
   .day3-intro h2 {

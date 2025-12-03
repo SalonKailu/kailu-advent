@@ -17,7 +17,7 @@ body {
 .App {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px;
 }
 
 /* HEADER */
@@ -314,7 +314,7 @@ body {
   }
   
   .header h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .header h1::before,
@@ -346,7 +346,7 @@ body {
   }
   
   .modal-content {
-    padding: 40px 25px;
+    padding: 20px 5px;
     width: 95%;
     max-height: 90vh;
     border-radius: 25px;
