@@ -19,7 +19,7 @@ const Day9 = () => {
           <div className="sale-info-box">
             <p className="sale-info-text">
               Objednej cokoli a my to zabalíme
-              <span className="sale-info-highlight"> jako dárek</span>
+              <span className="sale-info-highlight"> jako dárek</span>.
             </p>
           </div>
 

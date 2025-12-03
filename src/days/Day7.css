@@ -1,0 +1,284 @@
+/* Day 7 - Chytání emoji hra */
+
+.day7-container {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* START SCREEN */
+.day7-start {
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.day7-start h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.day7-start p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    max-width: 300px;
+}
+
+.day7-start-btn {
+    background: linear-gradient(135deg, #faa4a6, #f8b4b6);
+    color: white;
+    border: none;
+    padding: 20px 60px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(250, 164, 166, 0.4);
+    font-family: 'Poppins', sans-serif;
+}
+
+.day7-start-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(250, 164, 166, 0.5);
+}
+
+/* GAME SCREEN */
+.day7-game {
+    width: 100%;
+    max-width: 400px;
+}
+
+.day7-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #f1eae2;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.day7-score {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.day7-timer {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    background: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.day7-timer.warning {
+    color: #e74c3c;
+    animation: pulse 0.5s infinite;
+}
+
+.day7-arena {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(180deg, #fef9f3 0%, #f1eae2 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #faa4a6;
+    touch-action: manipulation;
+}
+
+.day7-emoji {
+    position: absolute;
+    font-size: 2.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s ease;
+    z-index: 10;
+}
+
+.day7-emoji:hover {
+    transform: scale(1.2);
+}
+
+.day7-emoji:active {
+    transform: scale(0.8);
+}
+
+/* RESULT SCREEN */
+.day7-result {
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+    max-width: 350px;
+}
+
+.day7-result h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.day7-final-score {
+    background: linear-gradient(135deg, #faa4a6, #f8b4b6);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(250, 164, 166, 0.3);
+}
+
+.score-number {
+    display: block;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.day7-result-text {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.day7-tip {
+    background: #f1eae2;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.day7-tip p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.day7-shop-btn {
+    display: inline-block;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 500;
+    border: 2px solid #faa4a6;
+    transition: all 0.3s ease;
+}
+
+.day7-shop-btn:hover {
+    background: #faa4a6;
+    color: white;
+}
+
+.day7-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.day7-share-btn {
+    background: linear-gradient(135deg, #faa4a6, #f8b4b6);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.day7-share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(250, 164, 166, 0.4);
+}
+
+.day7-replay-btn {
+    background: white;
+    color: #333;
+    border: 2px solid #ddd;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.day7-replay-btn:hover {
+    border-color: #faa4a6;
+    color: #faa4a6;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .day7-container {
+        padding: 15px;
+    }
+    
+    .day7-start h2,
+    .day7-result h2 {
+        font-size: 1.6rem;
+    }
+    
+    .day7-arena {
+        height: 350px;
+    }
+    
+    .day7-emoji {
+        font-size: 2rem;
+    }
+    
+    .score-number {
+        font-size: 3rem;
+    }
+    
+    .day7-actions {
+        flex-direction: column;
+    }
+    
+    .day7-share-btn,
+    .day7-replay-btn {
+        width: 100%;
+    }
+}

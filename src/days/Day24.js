@@ -46,7 +46,7 @@ const Day24 = () => {
                         Stačí si vybrat cokoliv z našeho e-shopu (bez minimální útraty!) a v košíku zadat tajný kód. My už se postaráme, aby ve vašem balíčku přistálo překvapení.
                     </p>
                     <p>
-                        Platí až do konce ledna 2026. Pak už si i Ježíšek bude chtít odpočinout. 😇
+                        Platí až do konce ledna 2026. 😇
                     </p>
                 </div>
 

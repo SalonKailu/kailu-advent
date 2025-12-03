@@ -18,8 +18,8 @@ const Day14 = () => {
 
           <div className="sale-info-box">
             <p className="sale-info-text">
-              Perfektní obočí pro tebe i tvou kámošku!
-              <span className="sale-info-highlight"> druhý gel zdarma!</span>
+              Zafixuje obočí na celý den, bez krusty a lesku.
+              <span className="sale-info-highlight"> ♥</span>
             </p>
           </div>
 

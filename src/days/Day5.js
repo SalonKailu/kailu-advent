@@ -8,13 +8,13 @@ const Day5 = () => {
         <div className="day5-header">
           <span className="day5-icon">🚚</span>
           <h1 className="day5-title">Doprava ZDARMA!</h1>
-          <p className="day5-subtitle">Dnes bez minimální částky nákupu</p>
+          <p className="day5-subtitle">Bez minimální částky nákupu</p>
         </div>
         
         <div className="day5-offer-box">
           <div className="day5-highlight">
             <span className="original-price">Běžně od 1500 Kč</span>
-            <span className="today-price">DNES od 0 Kč</span>
+            <span className="today-price">DNES bez limitu</span>
           </div>
           
           <div className="day5-info">

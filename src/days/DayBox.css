@@ -18,7 +18,21 @@
   margin-bottom: 12px;
   letter-spacing: 1px;
 }
+.box-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  text-align: left;
+}
 
+.box-benefits li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #faa4a6;
+}
+
+.box-benefits li:last-child {
+  border-bottom: none;
+}
 .box-title {
   font-family: 'Cinzel', serif;
   font-size: 1.6rem;

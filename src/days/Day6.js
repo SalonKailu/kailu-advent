@@ -44,7 +44,7 @@ const Day6 = () => {
       <div className="video-content">
         <p className="video-intro">
           Hledáš drobnost, která udělá radost a nepůsobí lacině? 
-          Tyhle tři kousky jsou moje ověřené tipy – sama je rozdávám.
+          Tyhle tři kousky ti můžu doporučit. 🥰
         </p>
 
         <div className="video-products">

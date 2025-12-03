@@ -19,18 +19,10 @@ const Day2 = () => {
           <div className="day2-discount-code">
             <p>Nabídka platí pouze dnes!</p>
             <img 
-              src="https://www.kailushop.cz/user/documents/upload/ostatní_ulozene/akcepoukaz.jpg" 
-              alt="Akce poukaz" 
-              style={{ 
-                width: '150px', 
-                height: 'auto', 
-                borderRadius: '10px', 
-                marginTop: '10px',
-                display: 'block',
-                marginLeft: 'auto',
-                marginRight: 'auto'
-              }} 
-            />
+  src="https://www.kailushop.cz/user/documents/upload/ostatní_ulozene/akcepoukaz.jpg" 
+  alt="Akce poukaz" 
+  className="day2-promo-image"
+/>
           </div>
         </a>
 

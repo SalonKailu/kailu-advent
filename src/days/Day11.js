@@ -10,18 +10,17 @@ const Day11 = () => {
           <h1 className="sale-title">Gumičky 1+1 zdarma!</h1>
         </div>
 
-        <div className="sale-content">
-          <p className="sale-subtitle">
-            Kup jedny gumičky a druhé dostaneš zdarma. 
-            Pro sebe a pro kamarádku! 👯‍♀️
-          </p>
 
-          <div className="sale-info-box">
-            <p className="sale-info-text">
-              Vlož do košíku 2 balení gumiček –
-              <span className="sale-info-highlight"> druhé je zdarma!</span>
-            </p>
-          </div>
+<div className="sale-content">
+  <p className="sale-subtitle">
+    Kup jednu gumičku a druhou dostaneš zdarma.
+  </p>
+  <ul className="sale-list">
+    <li>Pro sebe a pro kamarádku! 👯‍♀️</li>
+    <li>Pro dva culíky / drdůlky (doporučuji mini velikost)</li>
+    <li>Nebo jen tak do zásoby.</li>
+  </ul>
+</div>
 
           <a 
             href="https://www.kailushop.cz/doplnky/" 
@@ -35,7 +34,7 @@ const Day11 = () => {
           <div className="sale-validity">
             ⏰ Platí pouze dnes do půlnoci!
           </div>
-        </div>
+        
       </div>
     </div>
   );

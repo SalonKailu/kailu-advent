@@ -38,23 +38,16 @@ const Day12 = () => {
         {!showResult ? (
           <>
             <div className="box-description">
-              <p>
-                Tenhle produkt obsahuje <span className="box-highlight">jednu z nejvíce prozkoumaných ingrediencí</span> v péči o pleť. 
-                Přes 40 let vědeckého výzkumu potvrzuje její účinnost.
-              </p>
-              <p>
-                Stimuluje tvorbu kolagenu, urychluje obnovu buněk a pomáhá vyhlazovat jemné vrásky. 
-                Viditelné výsledky už po 12 týdnech pravidelného používání.
-              </p>
-              <p>
-                Navíc obsahuje <span className="box-highlight">mořské spikule</span> – přírodní mikroskopické jehličky, 
-                které vytvářejí tisíce drobných kanálků v pokožce. Díky nim aktivní látky pronikají 
-                až 30× hlouběji než běžně.
-              </p>
-              <p>
-                A bonus? Rakytníkový olej pro antioxidační ochranu a panthenol pro zklidnění.
-              </p>
-            </div>
+  <ul className="box-benefits">
+    <li>🔬 <strong>40+ let vědeckého výzkumu</strong> potvrzuje účinnost této ingredience</li>
+    <li>✨ <strong>Stimuluje</strong> tvorbu kolagenu</li>
+    <li>🔄 <strong>Urychluje</strong> obnovu buněk</li>
+    <li>📏 <strong>Vyhlazuje</strong> jemné vrásky (viditelně už po 12 týdnech!)</li>
+    <li>🧪 Obsahuje mořské spikule – přírodní mikroskopické jehličky, díky kterým aktivní látky pronikají <strong>2× hlouběji</strong></li>
+    <li>👋 A co je skvělé? Máme ho v nabídce a spoustu z vás už ho zbožňuje.</li>
+  </ul>
+
+</div>
 
             <div className="box-question">
               <p className="box-question-text">O jaký produkt se jedná?</p>
@@ -119,7 +112,7 @@ const Day12 = () => {
                 <div className="box-correct-answer">
                   <p>
                     Kombinace <strong>retinolu, retinalu a mořských spikul</strong> pro 
-                    viditelné výsledky na jemných vráskách a textuře pleti.
+                    viditelné výsledky.
                   </p>
                 </div>
                 <a 

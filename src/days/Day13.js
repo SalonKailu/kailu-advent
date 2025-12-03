@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import './Day3.css';
-import { saveEmailToNewsletter } from '../apiService';
 
 const Day13 = () => {
     // Otázky a odpovědi pro Den 13: Kosmetika, zábava a zapeklitosti!
@@ -10,7 +9,7 @@ const Day13 = () => {
             options: [
                 "Kyselina hyaluronová",
                 "Pleťový olej",
-                "SPF/Sluneční ochrana",
+                "SPF - ochrana proti UV záření",
                 "Niacinamid"
             ],
             correct: 2
@@ -39,7 +38,7 @@ const Day13 = () => {
             question: "Kolik času byste měli nechat, aby se aktivní sérum vstřebalo, než nanesete další produkt (např. krém)?",
             options: [
                 "5-10 minut (pro maximální absorpci)",
-                "Do úplného zaschnutí (cca 30-60 sekund)",
+                "Do zaschnutí (cca 30-60 sekund)",
                 "Nezáleží na tom, naneste hned",
                 "1 hodinu"
             ],
@@ -57,14 +56,14 @@ const Day13 = () => {
         }
     ];
 
-// Slevové kódy
-const discountCodes = useMemo(() => ({
-    7: 'L7FGH',
-    14: 'N14XY',
-    21: 'S21QP',
-    28: 'U28BN',
-    35: 'W35ZK'
-}), []); 
+    // Slevové kódy
+    const discountCodes = useMemo(() => ({
+        7: 'L7FGH',
+        14: 'N14XY',
+        21: 'S21QP',
+        28: 'U28BN',
+        35: 'W35ZK'
+    }), []); 
 
     // Názvy výsledků
     const resultTitles = {
@@ -77,12 +76,10 @@ const discountCodes = useMemo(() => ({
     };
 
     // State
-    const [gameState, setGameState] = useState('start'); // start, playing, finished
+    const [gameState, setGameState] = useState('start');
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [discount, setDiscount] = useState(0);
     const [timer, setTimer] = useState(45);
-    const [email, setEmail] = useState('');
-    const [gdprConsent, setGdprConsent] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [showResult, setShowResult] = useState(false);
     const [finalCode, setFinalCode] = useState('');
@@ -94,8 +91,6 @@ const discountCodes = useMemo(() => ({
     const wrongRef = useRef(null);
     const gameOverRef = useRef(null);
 
-    // --- FUNKCE VYUŽÍVAJÍCÍ STATE (VČETNĚ useCALLBACK PRO HOOK ZÁVISLOSTI) ---
-    
     // Konec hry 
     const endGame = useCallback((finalDiscount) => {
         setGameState('finished');
@@ -103,42 +98,34 @@ const discountCodes = useMemo(() => ({
         setShowResult(true);
         
         if (soundEnabled && gameOverRef.current) {
-          gameOverRef.current.play();
+            gameOverRef.current.play();
         }
         
-        // Získat kód
         const code = finalDiscount > 0 ? discountCodes[finalDiscount] : '';
         setFinalCode(code);
         
-        // Uložit do localStorage - UPRAVENO NA DAY13
         const gameData = {
-          email: email,
-          discount: finalDiscount,
-          code: code,
-          date: new Date().toDateString(),
-          timestamp: new Date().toISOString()
+            discount: finalDiscount,
+            code: code,
+            date: new Date().toDateString(),
+            timestamp: new Date().toISOString()
         };
         
         localStorage.setItem('kailuDay13Played', JSON.stringify(gameData));
-        
-        // Uložit do seznamu všech her - UPRAVENO NA DAY13
-        const allGames = JSON.parse(localStorage.getItem('kailuDay13Games') || '[]');
-        allGames.push(gameData);
-        localStorage.setItem('kailuDay13Games', JSON.stringify(allGames));
-    }, [email, soundEnabled, gameOverRef, discountCodes]);
+    }, [soundEnabled, discountCodes]);
 
     // Čas vypršel
     const handleTimeOut = useCallback(() => {
         if (soundEnabled && wrongRef.current) {
-          wrongRef.current.play();
+            wrongRef.current.play();
         }
         endGame(discount); 
-    }, [soundEnabled, wrongRef, endGame, discount]); 
+    }, [soundEnabled, endGame, discount]); 
 
     // Vzít slevu kdykoliv
     const takeDiscount = () => {
         if (discount > 0) {
-          endGame(discount);
+            endGame(discount);
         }
     };
     
@@ -165,47 +152,32 @@ const discountCodes = useMemo(() => ({
         }
     };
     
-    // Kontrola, zda už hráč hrál - UPRAVENO NA DAY13
+    // Kontrola, zda už hráč hrál
     const hasPlayedToday = () => {
         const played = localStorage.getItem('kailuDay13Played');
         if (played) {
             const playedData = JSON.parse(played);
             const today = new Date().toDateString();
-            return playedData.date === today && playedData.email === email; 
+            return playedData.date === today;
         }
         return false;
     };
     
-// Start hry
+    // Start hry
     const startGame = () => {
-    if (!email || !gdprConsent) {
-        alert('Vyplňte prosím email a potvrďte souhlas s podmínkami.');
-        return;
-    }
+        if (hasPlayedToday()) {
+            alert('Dnešní hru už máte hotovou! Vraťte se zítra pro novou výzvu.');
+            return;
+        }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Zadejte prosím platný email.');
-        return;
-    }
-
-    if (hasPlayedToday()) {
-        alert('Dnešní hru už máte hotovou! Vraťte se zítra pro novou výzvu.');
-        return;
-    }
-
-    // VOLÁNÍ CENTRÁLNÍ FUNKCE PRO UKLÁDÁNÍ E-MAILU - UPRAVENO NA DAY13
-    saveEmailToNewsletter(email, gdprConsent, 'Kailu_Advent_Kviz_Den_13'); 
-    
-    // POKRAČOVÁNÍ HRY
-    setGameState('playing');
-    setTimer(45);
-    
-    if (soundEnabled && timerMusicRef.current) {
-        timerMusicRef.current.loop = true;
-        timerMusicRef.current.play().catch(e => console.log('Music play failed:', e));
-    }
-};
+        setGameState('playing');
+        setTimer(45);
+        
+        if (soundEnabled && timerMusicRef.current) {
+            timerMusicRef.current.loop = true;
+            timerMusicRef.current.play().catch(e => console.log('Music play failed:', e));
+        }
+    };
 
     // Výběr odpovědi
     const selectAnswer = (index) => {
@@ -230,8 +202,39 @@ const discountCodes = useMemo(() => ({
         }, 1500);
     };
 
-    // --- KONEC FUNKCÍ ---
+    // Sdílení výsledku
+    const shareResult = () => {
+        let text;
+        if (discount === 35) {
+            text = `Jsem skincare guru! 👑 Získala jsem ${discount}% slevu v Kailu kvízu. Zkus to taky 👉 https://www.kailushop.cz/?advent=open`;
+        } else if (discount > 0) {
+            text = `Získala jsem ${discount}% slevu v Kailu skincare kvízu! 💄 Porazíš mě? 👉 https://www.kailushop.cz/?advent=open`;
+        } else {
+            text = `Kailu skincare kvíz mě dostal 😅 Zvládneš to líp? 👉 https://www.kailushop.cz/?advent=open`;
+        }
 
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile && navigator.share) {
+            navigator.share({ text }).catch(() => copyToClipboard(text));
+        } else {
+            copyToClipboard(text);
+        }
+    };
+
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Zkopírováno! Teď to můžeš vložit do Messengeru nebo kamkoliv jinam 📋');
+        }).catch(() => {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('Zkopírováno! Teď to můžeš vložit do Messengeru nebo kamkoliv jinam 📋');
+        });
+    };
 
     // Inicializace audio
     useEffect(() => {
@@ -240,11 +243,9 @@ const discountCodes = useMemo(() => ({
         wrongRef.current = new Audio('/sounds/wrong.mp3');
         gameOverRef.current = new Audio('/sounds/game-over.mp3');
         
-        // Nastavení hlasitosti
         if (timerMusicRef.current) timerMusicRef.current.volume = 0.3;
         
         return () => {
-            // Cleanup
             if (timerMusicRef.current) timerMusicRef.current.pause();
         };
     }, []);
@@ -266,15 +267,13 @@ const discountCodes = useMemo(() => ({
         }
     }, [gameState, timer, handleTimeOut]);
 
-    // Veškeré třídy CSS nechávám Day3, jak to bylo v původním kódu.
     return (
         <div className="day3-container"> 
             {gameState === 'start' && (
                 <div className="day3-start">
                     <div className="day3-intro">
-                        {/* ZMĚNA HLAVIČKY */}
                         <h2 style={{color: '#faa4a6'}}>Pro velký úspěch ještě jednou!</h2>
-                        <h2>jak se ti bude dařit ve druhém kole?</h2>
+                        <h2>Jak se ti bude dařit ve druhém kole?</h2>
                         <p>Zkus to a vyhraj až <strong>35% slevu!</strong></p>
                         
                         <div className="day3-rules">
@@ -289,35 +288,7 @@ const discountCodes = useMemo(() => ({
                         </div>
                     </div>
                     
-                    <form className="day3-form" onSubmit={(e) => { e.preventDefault(); startGame(); }}>
-                        <input
-                            type="email"
-                            placeholder="Váš email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            className="day3-input"
-                        />
-                        
-                        <label className="day3-checkbox-label">
-                            <input
-                                type="checkbox"
-                                checked={gdprConsent}
-                                onChange={(e) => setGdprConsent(e.target.checked)}
-                                required
-                            />
-                            <span>
-                                Souhlasím s{' '}
-                                <a href="https://www.kailushop.cz/podminky-advent" target="_blank" rel="noopener noreferrer">
-                                    podmínkami adventu
-                                </a>
-                                {' '}a{' '}
-                                <a href="https://www.kailushop.cz/podminky-ochrany-osobnich-udaju/" target="_blank" rel="noopener noreferrer">
-                                    ochranou osobních údajů
-                                </a>
-                            </span>
-                        </label>
-                        
+                    <div className="day3-form">
                         <label className="day3-checkbox-label">
                             <input
                                 type="checkbox"
@@ -327,10 +298,10 @@ const discountCodes = useMemo(() => ({
                             <span>🔊 Zapnout zvuky (doporučujeme!)</span>
                         </label>
                         
-                        <button type="submit" className="day3-submit">
+                        <button onClick={startGame} className="day3-submit">
                             ZAČÍT HRU
                         </button>
-                    </form>
+                    </div>
                 </div>
             )}
             
@@ -404,9 +375,22 @@ const discountCodes = useMemo(() => ({
                                 
                                 <div className="day3-code-container">
                                     <p>Váš slevový kód:</p>
-                                    <div className="day3-code">{finalCode}</div>
+                                    <div 
+                                        className="day3-code" 
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(finalCode);
+                                            alert('Kód zkopírován! 📋');
+                                        }}
+                                        style={{ cursor: 'pointer' }}
+                                        title="Klikni pro zkopírování"
+                                    >
+                                        {finalCode}
+                                    </div>
+                                    <p style={{ fontSize: '12px', color: '#aaa', marginTop: '5px' }}>
+                                        👆 Klikni na kód pro zkopírování
+                                    </p>
                                     <p className="day3-code-info">
-                                        Kód platí do 3.12.2025 23:59<br />
+                                        Kód platí do 13.12.2025 23:59<br />
                                         Minimální nákup: 1000 Kč
                                     </p>
                                 </div>
@@ -436,33 +420,9 @@ const discountCodes = useMemo(() => ({
                             <p>Pochlubte se výsledkem:</p>
                             <button 
                                 className="day3-share"
-                                onClick={() => {
-                                    // URL, která se bude sdílet (adresa vašeho e-shopu)
-                                    const shareUrl = encodeURIComponent('https://www.kailushop.cz/');
-                                    
-                                    // Text zprávy
-                                    const baseText = discount > 0 
-                                        ? "Získala jsem " + discount + "% slevu na kosmetiku díky Kailu kvízu! Zkus to taky: "
-                                        : "Zkusila jsem štěstí adventním kvízu! 💪 Zkus to taky: ";
-                                    
-                                    // URL pro Messenger sdílení (Fallback)
-                                    const messengerLink = "https://www.facebook.com/dialog/send?link=" + shareUrl + "&app_id=233519842426";
-                                    
-                                    // 1. Zkusíme použít nativní Web Share API (funguje nejlépe na mobilu pro DM)
-                                    if (navigator.share) {
-                                        navigator.share({
-                                            title: 'Kailu Adventní Kalendář',
-                                            text: baseText + 'https://www.kailushop.cz/',
-                                            url: 'https://www.kailushop.cz/',
-                                        })
-                                        .catch((error) => console.log('Error sharing', error));
-                                    } else {
-                                        // 2. Fallback pro desktop nebo starší prohlížeče (otevře Messenger dialog)
-                                        window.open(messengerLink, '_blank');
-                                    }
-                                }}
+                                onClick={shareResult}
                             >
-                                Sdílet přes Messenger
+                                Sdílet výsledek 📋
                             </button>
                         </div>
                     </div>

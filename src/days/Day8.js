@@ -11,7 +11,7 @@ const Day8 = () => {
       question: 'Ruku na srdce – jak často usínáš s make-upem?',
       options: [
         { text: 'Nikdy, jsem vzorná', isGood: true },
-        { text: 'Občas... no dobře, často', isGood: false }
+        { text: 'Občas... no, stane se', isGood: false }
       ],
       goodResponse: 'Respekt! Tvoje pleť ti děkuje.',
       badResponse: 'Noční můra pro póry. Ale neboj, máme řešení!'
@@ -50,7 +50,7 @@ const Day8 = () => {
       <>
         <div className="video-header">
           <span className="video-badge">✨ Mini kvíz</span>
-          <h1 className="video-title">Pleť vs. Vánoční večírky</h1>
+          <h1 className="video-title">Pleť vs. vánoční večírky</h1>
         </div>
 
         <div className="quiz-intro">
@@ -119,27 +119,32 @@ const Day8 = () => {
           <div className="checklist-title">
             📋 Tvůj party-proof checklist
           </div>
-          <div className="checklist-items">
-            <div className="checklist-item">
+          <div className="checklist-item">
               <span className="checklist-icon">✓</span>
-              <span>Odlič se VŽDY. I když je 3 ráno. I když "to nestojí za to".</span>
+              <span>hydratace, peeling, primer - aby ti makeup vydržel celý večer.</span>
             </div>
-            <div className="checklist-item">
-              <span className="checklist-icon">✓</span>
-              <span>Double cleansing – olejem a pak gelem. Jeden krok nestačí.</span>
-            </div>
-            <div className="checklist-item">
-              <span className="checklist-icon">✓</span>
-              <span>Ráno hydratační maska. Zachrání unavený obličej.</span>
-            </div>
-            <div className="checklist-item">
-              <span className="checklist-icon">✓</span>
-              <span>Ledové lžičky na oči. Stará škola, ale funguje.</span>
-            </div>
-            <div className="checklist-item">
+          <div className="checklist-item">
               <span className="checklist-icon">✓</span>
               <span>Pij vodu mezi drinky. Tvoje pleť (a hlava) ti poděkuje.</span>
             </div>
+          <div className="checklist-items">
+            <div className="checklist-item">
+              <span className="checklist-icon">✓</span>
+              <span>Po akci se vždy odlič. I když jsou 3 ráno. I když se ti fakt nechce.</span>
+            </div>
+            <div className="checklist-item">
+  <span className="checklist-icon">✓</span>
+  <span>Pokud budeš při síle, zvol <a href="https://www.kailushop.cz/double-cleansing/" target="_blank" rel="noopener noreferrer">Double cleansing</a> – dvoufázové odlíčení.</span>
+</div>
+            <div className="checklist-item">
+              <span className="checklist-icon">✓</span>
+              <span>Ráno hydratační nebo zklidňující maska. Zachrání unavený obličej.</span>
+            </div>
+            <div className="checklist-item">
+              <span className="checklist-icon">✓</span>
+              <span>Ledové lžičky na oči. Stará škola, ale fungují.</span>
+            </div>
+          
           </div>
         </div>
 
