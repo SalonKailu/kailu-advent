@@ -32,7 +32,7 @@ const Day3 = () => {
                 "Mastná pleť",
                 "Citlivá pleť"
             ],
-            correct: 0
+            correct: [0, 3]
         },
         {
             question: "Co dostanete v každé naší sadě kromě produktů?",
@@ -131,7 +131,12 @@ const Day3 = () => {
     
     // Zpracování odpovědi
     const handleAnswer = (index) => {
-        if (index === questions[currentQuestion].correct) {
+        const correctAnswer = questions[currentQuestion].correct;
+        const isCorrect = Array.isArray(correctAnswer) 
+            ? correctAnswer.includes(index) 
+            : index === correctAnswer;
+
+        if (isCorrect) {
             const newDiscount = discount + 7;
             setDiscount(newDiscount);
             
@@ -337,25 +342,32 @@ const Day3 = () => {
                         <h2 className="day3-question">{questions[currentQuestion].question}</h2>
                         
                         <div className="day3-options">
-                            {questions[currentQuestion].options.map((option, index) => (
-                                <button
-                                    key={index}
-                                    className={`day3-option ${
-                                        selectedAnswer !== null
-                                            ? index === questions[currentQuestion].correct
-                                                ? 'correct'
-                                                : selectedAnswer === index
-                                                    ? 'wrong'
-                                                    : 'disabled'
-                                            : ''
-                                    }`}
-                                    onClick={() => selectAnswer(index)}
-                                    disabled={selectedAnswer !== null}
-                                >
-                                    <span className="option-letter">{String.fromCharCode(65 + index)}</span>
-                                    <span className="option-text">{option}</span>
-                                </button>
-                            ))}
+                            {questions[currentQuestion].options.map((option, index) => {
+                                const correctAnswer = questions[currentQuestion].correct;
+                                const isCorrect = Array.isArray(correctAnswer) 
+                                    ? correctAnswer.includes(index) 
+                                    : index === correctAnswer;
+                                
+                                return (
+                                    <button
+                                        key={index}
+                                        className={`day3-option ${
+                                            selectedAnswer !== null
+                                                ? isCorrect
+                                                    ? 'correct'
+                                                    : selectedAnswer === index
+                                                        ? 'wrong'
+                                                        : 'disabled'
+                                                : ''
+                                        }`}
+                                        onClick={() => selectAnswer(index)}
+                                        disabled={selectedAnswer !== null}
+                                    >
+                                        <span className="option-letter">{String.fromCharCode(65 + index)}</span>
+                                        <span className="option-text">{option}</span>
+                                    </button>
+                                );
+                            })}
                         </div>
                         
                         {discount > 0 && selectedAnswer === null && (
