@@ -15,12 +15,12 @@ const Day13 = () => {
             correct: 2
         },
         {
-            question: "Kolik gramů SPF krému (sluneční ochrany) byste měli ideálně aplikovat na obličej, krk a dekolt pro dostatečnou ochranu?",
+            question: "Kam do vaší rutiny patří sérum?",
             options: [
-                "Jako hrášek (cca 0,25 g)",
-                "Jako lžička (cca 5 g)",
-                "Jako malá bobulka hroznového vína (cca 2 g)",
-                "Jen tolik, aby se krém rychle vstřebal"
+                "Je to jedno, funguje vždy",
+                "Čištění - SÉRUM - tonizace - krém",
+                "Čištění - tonizace - SÉRUM - krém",
+                "Čištění - tonizace - krém - SÉRUM"
             ],
             correct: 2
         },
@@ -35,21 +35,21 @@ const Day13 = () => {
             correct: 3
         },
         {
-            question: "Kolik času byste měli nechat, aby se aktivní sérum vstřebalo, než nanesete další produkt (např. krém)?",
+            question: "Jak často je vhodné měnit kosmetiku?",
             options: [
-                "5-10 minut (pro maximální absorpci)",
-                "Do zaschnutí (cca 30-60 sekund)",
-                "Nezáleží na tom, naneste hned",
-                "1 hodinu"
+                "Každý měsíc, aby si pleť nezvykla",
+                "Pokud mi něco přestane vyhovovat nebo budu mít pocit, že chci lepší výsledky",
+                "Nikdy!",
+                "Je to úplně jedno"
             ],
             correct: 1
         },
         {
-            question: "Kdy je ideální čas aplikovat na obličej čistící jílovou masku?",
+            question: "Kdy je ideální čas aplikovat na obličej čistící plátýnkovou masku s kyselinami?",
             options: [
-                "Ráno před mytím zubů",
-                "Ihned po použití aktivních kyselin (aby se účinky navzájem posílily)",
-                "Po důkladném double-cleanse",
+                "Ráno před čištěním zubů",
+                "Ihned po použití dalších kyselin (aby se účinky navzájem posílily)",
+                "Po důkladném vyčištění pleti",
                 "Když je pleť nalíčená"
             ],
             correct: 2
@@ -58,11 +58,11 @@ const Day13 = () => {
 
     // Slevové kódy
     const discountCodes = useMemo(() => ({
-        7: 'L7FGH',
-        14: 'N14XY',
-        21: 'S21QP',
-        28: 'U28BN',
-        35: 'W35ZK'
+        7: 'K7FGH',
+        14: 'M14XY',
+        21: 'R21QP',
+        28: 'T28BN',
+        35: 'V35ZK'
     }), []); 
 
     // Názvy výsledků
@@ -273,7 +273,7 @@ const Day13 = () => {
                 <div className="day3-start">
                     <div className="day3-intro">
                         <h2 style={{color: '#faa4a6'}}>Pro velký úspěch ještě jednou!</h2>
-                        <h2>Jak se ti bude dařit ve druhém kole?</h2>
+                        <h2>Jak se ti bude dařit ve druhém, náročnějsím kole? 🤩</h2>
                         <p>Zkus to a vyhraj až <strong>35% slevu!</strong></p>
                         
                         <div className="day3-rules">
@@ -390,18 +390,18 @@ const Day13 = () => {
                                         👆 Klikni na kód pro zkopírování
                                     </p>
                                     <p className="day3-code-info">
-                                        Kód platí do 13.12.2025 23:59<br />
+                                        Kód platí do 13.12.2025 23:59 a uplatnit ho můžete na úplně cokoli kromě poukazů.<br />
                                         Minimální nákup: 1000 Kč
                                     </p>
                                 </div>
                                 
                                 <a 
-                                    href="https://www.kailushop.cz" 
+                                    href="https://www.kailushop.cz/" 
                                     className="day3-shop-button"
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                 >
-                                    POUŽÍT SLEVU V E-SHOPU
+                                    VYUŽÍT SLEVU V E-SHOPU
                                 </a>
                             </>
                         ) : (

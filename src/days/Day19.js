@@ -15,7 +15,7 @@ const Day19 = () => {
       <div className="sale-card">
         <div className="sale-header">
           <span className="sale-emoji">💆‍♀️</span>
-          <h1 className="sale-title">Poukaz do salonu se slevou 10%!</h1>
+          <h1 className="sale-title">Podruhé a naposledy. 😁🤶<br/>Poukaz do salonu se slevou 10%!</h1>
         </div>
 
         <div className="sale-content">
@@ -25,13 +25,7 @@ const Day19 = () => {
             Doručíme okamžitě emailem.
           </p>
 
-          <div className="sale-code-box" onClick={copyCode}>
-            <p className="sale-code-label">Použij kód při objednávce</p>
-            <p className="sale-code">BRNACKY10</p>
-            <p className={`sale-code-hint ${copied ? 'sale-code-copied' : ''}`}>
-              {copied ? '✓ Zkopírováno!' : 'Klikni pro zkopírování'}
-            </p>
-          </div>
+        
 
           <a 
             href="https://www.kailushop.cz/kosmetika-oboci-rasy/" 
@@ -44,12 +38,13 @@ const Day19 = () => {
 
           <div className="sale-validity">
             📧 Doručíme ihned na email – stihneš i na poslední chvíli!
-            <span className="sale-extended">Kód platí až do 24. 12.!</span>
+          
           </div>
 
           <div className="sale-bonus">
             <p>📍 Salon Kailu, Brno-Lesná</p>
             <p>Ideální dárek pro maminku, kamarádku nebo sebe</p>
+             <p><span className="sale-extended">Paltnost poukazu je do 30.6.2026</span></p>
           </div>
         </div>
       </div>

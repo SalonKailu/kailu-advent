@@ -172,7 +172,7 @@ const Day23 = () => {
     return (
         <>
             <div className="box-header" style={{ background: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 100%)' }}>
-                <span className="box-badge">🎄 Tentokrát nekosmeticky</span>
+                <span className="box-badge">🎄 Tentokrát nekosmetický</span>
                 <h1 className="box-title">Vánoční kvíz</h1>
                 
                 {/* Přepínač zvuku pro UX */}

@@ -35,26 +35,18 @@ const Day15 = () => {
       </div>
 
       <div className="box-content">
-        {!showResult ? (
-          <>
-            <div className="box-description">
-              <p>
-                Tento produkt pracuje s <span className="box-highlight">fermentovanými ingrediencemi</span> – 
-                trendem, který ovládl korejskou kosmetiku. A věda mu dává za pravdu.
-              </p>
-              <p>
-                Obsahuje <span className="box-highlight">probiotický filtrát z pupečníku asijského</span>, 
-                který posiluje kožní bariéru a zklidňuje zánětlivé procesy. 
-                Výzkumy ukazují, že probiotika pomáhají balancovat mikrobiom pleti.
-              </p>
-              <p>
-                K tomu <span className="box-highlight">5% niacinamid</span> pro sjednocení tónu 
-                a zjemnění pórů, ceramidy pro obnovu lipidové bariéry a kyselinu hyaluronovou pro hydrataci.
-              </p>
-              <p>
-                Bambucké máslo a makadamiový olej zajišťují výživu bez pocitu těžkosti.
-              </p>
-            </div>
+  {!showResult ? (
+    <>
+      <div className="box-description">
+        <ul className="box-benefits">
+          <li>🧫 <strong>Fermentované ingredience</strong> – trend korejské kosmetiky potvrzený vědou</li>
+          <li>🌿 <strong>Probiotický filtrát z Centella Asiatica</strong> – posiluje bariéru, balancuje mikrobiom, zklidňuje</li>
+          <li>✨ <strong>5% niacinamid</strong> – sjednocuje tón, zjemňuje póry</li>
+          <li>🛡️ <strong>Ceramidy</strong> – obnovují lipidovou bariéru</li>
+          <li>💧 <strong>Kyselina hyaluronová</strong> – hloubková hydratace</li>
+          <li>🧈 <strong>Bambucké máslo + makadamiový olej</strong> – výživa a hebkost</li>
+        </ul>
+      </div>
 
             <div className="box-question">
               <p className="box-question-text">O jaký produkt se jedná?</p>

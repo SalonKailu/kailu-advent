@@ -32,7 +32,7 @@ const Day22 = () => {
           </div>
 
           <a 
-            href="https://www.kailushop.cz" 
+            href="https://www.kailushop.cz/poukazy-eshop/" 
             className="sale-button"
             target="_blank" 
             rel="noopener noreferrer"
@@ -41,8 +41,8 @@ const Day22 = () => {
           </a>
 
           <div className="sale-validity">
-            📧 Doručíme ihned na email – ideální last minute dárek! <p></p>
-            <span className="sale-extended">Kód platí až do 24. 12.!</span>
+            📧 Doručíme ihned na email – ideální last minute dárek! Kód můžete využít až do 24.12. <p></p>
+            <span className="sale-extended">Platnost poukazu je do 31.6.2026!</span>
           </div>
 
           <div className="sale-bonus">

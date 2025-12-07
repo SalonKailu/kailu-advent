@@ -125,7 +125,7 @@ const Day24 = () => {
 
 
                 <div className="box-footer">
-                    <p>Veselé Vánoce přeje tým Kailu!</p>
+                    <p>Veselé Vánoce přeje tým Kailu! ♥</p>
                 </div>
             </div>
         </div>

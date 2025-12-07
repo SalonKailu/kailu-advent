@@ -7,12 +7,12 @@ const Day16 = () => {
       <div className="sale-card">
         <div className="sale-header">
           <span className="sale-emoji">☀️</span>
-          <h1 className="sale-title">SPF krém 1+1 zdarma!</h1>
+          <h1 className="sale-title">Hydratační SPF krém 1+1 zdarma!</h1>
         </div>
 
         <div className="sale-content">
           <p className="sale-subtitle">
-            Ochrana před sluncem i v zimě! ❄️<br />
+            Ochranu před UV zářením potřebujeme i v zimě! ❄️<br />
             Kup jeden krém a druhý dostaneš zdarma.
           </p>
 
@@ -38,7 +38,7 @@ const Day16 = () => {
 
           <div className="sale-bonus">
             <p>💡 Věděla jsi?</p>
-            <p>UVA paprsky pronikají i přes mraky – SPF potřebuješ celoročně!</p>
+            <p>UVA paprsky (to jsou ty, které způsobují stárnutí) pronikají i přes mraky!</p>
           </div>
         </div>
       </div>
