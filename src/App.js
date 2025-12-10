@@ -40,8 +40,8 @@ const currentMonth = today.getMonth() + 1; // getMonth() vrací 0-11, proto +1
 const days = Array.from({ length: 24 }, (_, i) => i + 1);
 
 const handleDayClick = (day) => {
-  // Otevře se jen okénko dnešního dne v prosinci
-  if (currentMonth === 12 && day === currentDay) {
+  // Otevře se okénko dnešního dne NEBO minulých dnů v prosinci
+  if (currentMonth === 12 && day <= currentDay) {
     setSelectedDay(day);
     const newOpenedDays = new Set([...openedDays, day]);
     setOpenedDays(newOpenedDays);
@@ -55,8 +55,8 @@ const closeModal = () => {
 
 const getDayStatus = (day) => {
   if (openedDays.has(day)) return 'opened';
-  // Pouze dnešní den je dostupný
   if (currentMonth === 12 && day === currentDay) return 'available';
+  if (currentMonth === 12 && day < currentDay) return 'missed';
   return 'locked';
 };
 
@@ -82,6 +82,7 @@ const getDayStatus = (day) => {
               <span className="day-number">{day}</span>
               {status === 'available' && <span className="day-label">OTEVŘI!</span>}
               {status === 'opened' && <span className="day-label">✓</span>}
+              {status === 'missed' && <span className="day-label">👀</span>}
               {status === 'locked' && <span className="day-icon">🔒</span>}
             </button>
           );
@@ -92,13 +93,13 @@ const getDayStatus = (day) => {
   <div className="modal-overlay" onClick={closeModal}>
     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
       
-      {getDayStatus(selectedDay) === 'missed' && (
+      {selectedDay < currentDay && (
         <div className="missed-banner">
-          ⏰ Toto okénko už proběhlo – sleva již neplatí
+          ⏰ Toto okénko už bylo otevřené – sleva již neplatí
         </div>
       )}
       
-      <div className={getDayStatus(selectedDay) === 'missed' ? 'day-content missed' : 'day-content'}>
+      <div className={selectedDay < currentDay ? 'day-content missed' : 'day-content'}>
       {(() => {
        const dayComponents = {
   1: <Day1 onClose={closeModal} />,
