@@ -181,6 +181,27 @@ body {
   animation: none; /* Vypne točení */
 }
 
+/* ===== MISSED (prošlé dny) ===== */
+.missed-banner {
+  background: #f5e6e0;
+  color: #996666;
+  padding: 12px 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin: -30px -25px 20px -25px;
+  font-size: 0.9rem;
+}
+
+.box-content.missed {
+  opacity: 0.75;
+}
+
+.box-content.missed .box-cta {
+  pointer-events: none;
+  background: #ddd;
+  color: #999;
+}
+
 /* DAY NUMBER */
 .day-number {
   font-size: 2.8rem;

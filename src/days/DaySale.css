@@ -10,7 +10,16 @@
   position: relative;
 }
 
+.sale-list {
+  list-style: disc;
+  text-align: left;
+  padding-left: 25px;
+  margin-top: 10px;
+}
 
+.sale-list li {
+  margin-bottom: 5px;
+}
 
 .sale-emoji {
   font-size: 3.5rem;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './DayVideo.css';
+import './DayBox.css';
 
 const Day10 = () => {
   const products = [
@@ -22,59 +22,42 @@ const Day10 = () => {
 
   return (
     <>
-      <div className="video-header">
-        <span className="video-badge">🎬 Video tip</span>
-        <h1 className="video-title">Dárky do 1000 Kč pro náročné</h1>
+      <div className="box-header">
+        <span className="box-badge">🎁 Tip na dárek</span>
+        <h1 className="box-title">Dárky do 1000 Kč</h1>
       </div>
 
-      <div className="video-wrapper">
-        <video 
-          controls 
-          playsInline
-          poster=""
-        >
-          <source 
-            src="https://www.kailushop.cz/user/documents/upload/advent/darky-1000.mp4" 
-            type="video/mp4" 
-          />
-          Tvůj prohlížeč nepodporuje video.
-        </video>
-      </div>
-
-      <div className="video-content">
-        <p className="video-intro">
+      <div className="box-content">
+        <p className="box-description">
           Když chceš dát něco víc než drobnost. 
-          Tahle trojice zaručeně nezklame – sama bych si ji přála.
+          Tahle trojice zaručeně nezklame.
         </p>
 
-        <div className="video-products">
-          <p className="video-products-title">Z videa</p>
-          <div className="products-grid">
-            {products.map((product, index) => (
-              <a 
-                key={index}
-                href={product.url}
-                className="product-card"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="product-emoji">{product.emoji}</span>
-                <span className="product-name">{product.name}</span>
-              </a>
-            ))}
-          </div>
+        <div className="box-products">
+          {products.map((product, index) => (
+            <a 
+              key={index}
+              href={product.url}
+              className="box-product-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="box-product-emoji">{product.emoji}</span>
+              <span className="box-product-name">{product.name}</span>
+            </a>
+          ))}
         </div>
 
         <a 
           href="https://www.kailushop.cz/produkty/"
-          className="video-cta"
+          className="box-cta"
           target="_blank"
           rel="noopener noreferrer"
         >
           Prohlédnout celý e-shop →
         </a>
 
-        <div className="video-footer">
+        <div className="box-footer">
           <p>Nevíš co vybrat? Poukaz je vždy trefa do černého.</p>
         </div>
       </div>

@@ -91,6 +91,14 @@ const getDayStatus = (day) => {
 {selectedDay && (
   <div className="modal-overlay" onClick={closeModal}>
     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      
+      {getDayStatus(selectedDay) === 'missed' && (
+        <div className="missed-banner">
+          ⏰ Toto okénko už proběhlo – sleva již neplatí
+        </div>
+      )}
+      
+      <div className={getDayStatus(selectedDay) === 'missed' ? 'day-content missed' : 'day-content'}>
       {(() => {
        const dayComponents = {
   1: <Day1 onClose={closeModal} />,
@@ -123,7 +131,7 @@ const getDayStatus = (day) => {
           return dayComponents[selectedDay];
         }
 
-        return (
+return (
           <>
             <button className="modal-close" onClick={closeModal}>✕</button>
             <h2>Den {selectedDay}</h2>
@@ -132,6 +140,7 @@ const getDayStatus = (day) => {
           </>
         );
       })()}
+      </div>
     </div>
   </div>
 )}
