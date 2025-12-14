@@ -33,7 +33,7 @@ const Day14 = () => {
           </a>
 
           <div className="sale-validity">
-            ⏰ Platí pouze dnes do půlnoci!
+            ⏰ Platí do zítřejší (15.12.) půlnoci!
           </div>
         </div>
       </div>

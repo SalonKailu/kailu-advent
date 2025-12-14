@@ -9,8 +9,8 @@ const Day15 = () => {
   const correctAnswer = 'probiotic';
 
   const options = [
-    { id: 'collagen', label: 'Kolagenový krém' },
-    { id: 'probiotic', label: 'Probiotický noční krém' },
+    { id: 'collagen', label: 'Kolagenové sérum' },
+    { id: 'probiotic', label: 'Probiotické sérum' },
     { id: 'peptide', label: 'Peptidové sérum' }
   ];
 
@@ -20,7 +20,7 @@ const Day15 = () => {
   };
 
   const copyCode = () => {
-    navigator.clipboard.writeText('PROBIOKREM15');
+    navigator.clipboard.writeText('PROBIO15');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -39,12 +39,12 @@ const Day15 = () => {
     <>
       <div className="box-description">
         <ul className="box-benefits">
-          <li>🧫 <strong>Fermentované ingredience</strong> – trend korejské kosmetiky potvrzený vědou</li>
-          <li>🌿 <strong>Probiotický filtrát z Centella Asiatica</strong> – posiluje bariéru, balancuje mikrobiom, zklidňuje</li>
-          <li>✨ <strong>5% niacinamid</strong> – sjednocuje tón, zjemňuje póry</li>
-          <li>🛡️ <strong>Ceramidy</strong> – obnovují lipidovou bariéru</li>
-          <li>💧 <strong>Kyselina hyaluronová</strong> – hloubková hydratace</li>
-          <li>🧈 <strong>Bambucké máslo + makadamiový olej</strong> – výživa a hebkost</li>
+          <li>🌿 <strong>Komplex Centella Asiatica</strong> – madecassic acid, asiaticoside a asiatic acid pro maximální zklidnění</li>
+          <li>🛡️ <strong>Ceramidy NP</strong> – obnovují a posilují přirozenou ochrannou bariéru</li>
+          <li>✨ <strong>Niacinamid</strong> – zklidňuje a sjednocuje tón pleti</li>
+          <li>🧈 <strong>Makadamiový olej</strong> – výživa a hydratace bez mastného pocitu</li>
+          <li>💧 <strong>Polyglutamová kyselina</strong> – intenzivní dlouhotrvající hydratace</li>
+          <li>🧫 <strong>Lactobacillus Ferment</strong> – probiotická složka pro zdravý mikrobiom</li>
         </ul>
       </div>
 
@@ -82,20 +82,20 @@ const Day15 = () => {
             {isWin ? (
               <>
                 <p className="box-result-text">
-                  Je to náš Probiotický noční krém! Fermentované ingredience, niacinamid 
-                  a ceramidy pro pleť, která se ráno probudí odpočatá.
+                  Je to naše Probiotické sérum! Komplex Centella Asiatica, ceramidy 
+                  a polyglutamová kyselina pro zklidněnou a dokonale hydratovanou pleť.
                 </p>
                 
                 <div className="box-code-container" onClick={copyCode}>
                   <p className="box-code-label">Tvůj slevový kód</p>
-                  <p className="box-code">PROBIOKREM15</p>
+                  <p className="box-code">PROBIO15</p>
                   <p className={`box-code-hint ${copied ? 'box-code-copied' : ''}`}>
                     {copied ? '✓ Zkopírováno!' : 'Klikni pro zkopírování'}
                   </p>
                 </div>
 
                 <a 
-                  href="https://www.kailushop.cz/probioticky-krem/"
+                  href="https://www.kailushop.cz/probioticke-serum/"
                   className="box-cta"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -106,21 +106,21 @@ const Day15 = () => {
             ) : (
               <>
                 <p className="box-result-text">
-                  Správná odpověď byl Probiotický noční krém.
+                  Správná odpověď bylo Probiotické sérum.
                 </p>
                 <div className="box-correct-answer">
                   <p>
-                    <strong>Fermentovaný filtrát z pupečníku</strong>, niacinamid a ceramidy 
-                    pro posílení kožní bariéry a klidnější pleť.
+                    <strong>Komplex Centella Asiatica</strong>, ceramidy NP a polyglutamová kyselina 
+                    pro zklidnění a intenzivní hydrataci pleti.
                   </p>
                 </div>
                 <a 
-                  href="https://www.kailushop.cz/probioticky-krem/"
+                  href="https://www.kailushop.cz/probioticke-serum/"
                   className="box-cta"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Prohlédnout krém →
+                  Prohlédnout sérum →
                 </a>
               </>
             )}
