@@ -7,13 +7,13 @@ const Day18 = () => {
       <div className="sale-card">
         <div className="sale-header">
           <span className="sale-emoji">🚚</span>
-          <h1 className="sale-title">Poslední šance na doručení do Vánoc!</h1>
+          <h1 className="sale-title">Doručení do Vánoc bez stresu!</h1>
         </div>
 
         <div className="sale-content">
           <p className="sale-subtitle">
-            Dnes je poslední den, kdy garantujeme doručení před Štědrým dnem. 
-            A k tomu dárkové balení zdarma! 🎄
+            Objednejte dnes a nejpozději zítra dopoledne balíček odešleme.
+            A navíc můžete využít dárkové balení zdarma! 🎄
           </p>
 
           <div className="sale-info-box">
@@ -36,7 +36,7 @@ const Day18 = () => {
           </a>
 
           <div className="sale-validity">
-            <span className="sale-validity-urgent">⚠️ POSLEDNÍ DEN pro doručení do Vánoc!</span>
+            <span className="sale-validity-urgent">⚠️ Zítra, 19.12. už je úplně poslední termín pro odeslání.</span>
           </div>
 
           <div className="sale-bonus">
