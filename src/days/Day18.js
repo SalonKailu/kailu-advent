@@ -12,19 +12,15 @@ const Day18 = () => {
 
         <div className="sale-content">
           <p className="sale-subtitle">
-            Objednejte dnes a nejpozději zítra dopoledne balíček odešleme.
-            A navíc můžete využít dárkové balení zdarma! 🎄
+            Objednejte dnes nebo zítra dopoledne.
           </p>
 
           <div className="sale-info-box">
-            <p className="sale-info-text">
-              Objednej dnes a máš jistotu, že dárek
-              <span className="sale-info-highlight"> dorazí včas!</span>
-            </p>
-            <p className="sale-info-text">
-              🎀 <span className="sale-info-highlight">+ dárkové balení zdarma</span>
-            </p>
-          </div>
+  <p className="sale-info-text">
+    Navíc pouze dnes můžete využít
+    <a href="https://www.kailushop.cz/darkove-baleni" className="sale-info-highlight" style={{textDecoration: 'none', cursor: 'pointer'}}> DÁRKOVÉ BALENÍ ZA KORUNU</a>
+  </p>
+</div>
 
           <a 
             href="https://www.kailushop.cz" 
@@ -36,7 +32,7 @@ const Day18 = () => {
           </a>
 
           <div className="sale-validity">
-            <span className="sale-validity-urgent">⚠️ Zítra, 19.12. už je úplně poslední termín pro odeslání.</span>
+            <span className="sale-validity-urgent">⚠️ Večerní objednávky odešleme zítra, 19.12 -  to je úplně poslední termín pro Vánoční odeslání.</span>
           </div>
 
           <div className="sale-bonus">
