@@ -29,12 +29,12 @@ const Day18 = () => {
 </div>
 
           <a 
-            href="https://www.kailushop.cz" 
+            href="https://www.kailushop.cz/tipy-na-darek" 
             className="sale-button"
             target="_blank" 
             rel="noopener noreferrer"
           >
-            Nakoupit teď →
+            Vybrat dárky →
           </a>
 
           <div className="sale-validity">
