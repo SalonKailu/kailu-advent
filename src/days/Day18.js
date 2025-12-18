@@ -18,7 +18,13 @@ const Day18 = () => {
           <div className="sale-info-box">
   <p className="sale-info-text">
     Navíc pouze dnes můžete využít
-    <a href="https://www.kailushop.cz/darkove-baleni" className="sale-info-highlight" style={{textDecoration: 'none', cursor: 'pointer'}}> DÁRKOVÉ BALENÍ ZA KORUNU</a>
+    <a 
+      href="https://www.kailushop.cz/darkove-baleni" 
+      className="sale-info-highlight" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      style={{textDecoration: 'none', cursor: 'pointer'}}
+    > DÁRKOVÉ BALENÍ ZA KORUNU</a>
   </p>
 </div>
 
